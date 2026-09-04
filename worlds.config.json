@@ -46,6 +46,14 @@
       ],
       "lookPrompt": "Generate high quality rendering gaussian splat for universal studios. I can see various rollers coasters, refer to images and the worlds, and other buildings.",
       "spawnFacing": 180
+    },
+    "images-1788552488850": {
+      "title": "Globe Plaza",
+      "sourceImage": "uploads/images-1788552488850.jpg",
+      "sourceImages": [
+        "uploads/images-1788552488850.jpg"
+      ],
+      "lookPrompt": "Generate high quality rendering gaussian splat for universal studios. I can see various rollers coasters, refer to images and the worlds, and other buildings."
     }
   }
 }
