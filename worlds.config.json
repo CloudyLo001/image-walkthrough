@@ -34,6 +34,17 @@
       ],
       "lookPrompt": "The house will be very far away, and unreachable. but show the house far away. Ill move in the grass farmland.",
       "spawnFacing": 180
+    },
+    "images-1788543465672": {
+      "title": "Movie Theme Park",
+      "sourceImage": "uploads/images-1788543465672.jpg",
+      "sourceImages": [
+        "uploads/images-1788543465672.jpg",
+        "uploads/images-1788543468907.jpg",
+        "uploads/images-1788543491095.jpg",
+        "uploads/images-1788543547407.jpg"
+      ],
+      "lookPrompt": "Generate high quality rendering gaussian splat for universal studios. I can see various rollers coasters, refer to images and the worlds, and other buildings."
     }
   }
 }
