@@ -17,6 +17,8 @@ export interface WorldEntry {
   sourceImages: string[];
   /** The user's own guidance on how the world should look. */
   lookPrompt?: string;
+  /** Opening view in degrees, when the automatic sweep faces the wrong way. */
+  spawnFacing?: number;
   runtimeUrl: string;
   colliderUrl: string;
 }
@@ -42,6 +44,7 @@ export interface PendingWorld {
 export interface WorldConfig extends WorldPhotoSource {
   title?: string;
   lookPrompt?: string;
+  spawnFacing?: number;
   status?: PendingStatus;
   note?: string;
 }
@@ -96,6 +99,7 @@ export function listReadyWorlds(config: WorldConfigMap = bundledWorldConfig): Wo
         sourceImage: photos[0],
         sourceImages: photos,
         lookPrompt: extra.lookPrompt,
+        spawnFacing: extra.spawnFacing,
         runtimeUrl: asset.runtime?.runtimeUrl?.trim() ?? "",
         colliderUrl: asset.runtime?.collider?.runtimeUrl?.trim() ?? "",
       };

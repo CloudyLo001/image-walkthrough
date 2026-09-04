@@ -32,7 +32,8 @@
         "uploads/images-1788539022672.jpg",
         "uploads/images-1788539015414.jpg"
       ],
-      "lookPrompt": "The house will be very far away, and unreachable. but show the house far away. Ill move in the grass farmland."
+      "lookPrompt": "The house will be very far away, and unreachable. but show the house far away. Ill move in the grass farmland.",
+      "spawnFacing": 180
     }
   }
 }

@@ -190,6 +190,37 @@ side and the credits are already spent. Stop is for "I do not want this in my
 app", not for "refund me". A stopped world can be found later in the Mint chat
 if you change your mind.
 
+## Framing the opening view
+
+The app opens facing whichever direction has the longest clear line of sight.
+In a room that lands well. In open country it is arbitrary, and the subject can
+end up behind the player.
+
+Set `spawnFacing` in `worlds.config.json` to a compass bearing in degrees to
+override it. The automatic sweep is skipped when it is present, and the load
+line reports `fixed <n>deg` instead of an open-view distance.
+
+```json
+"farmland": { "title": "Farmland", "spawnFacing": 180 }
+```
+
+Find the right bearing by entering the world, turning until the subject is
+centred, and reading the yaw the app reports.
+
+## Distance is set by the anchor image, not the prompt
+
+Mint composes a world to match its anchor. If the subject should look far away,
+the anchor must already show it far away: wording alone loses to the picture.
+When two framings of one scene are available, anchor on the one where the
+subject is smallest, and do not send a closer framing as a second reference,
+because the two disagree on the very thing being controlled.
+
+Measure it rather than eyeballing: the farmland anchor went from the subject
+occupying 8.4% of frame width to 5.0%, and that single change moved the house
+from mid-field to the horizon. Also forbid paths, tracks and fence lines
+leading to a distant subject, since one of those makes it read as a
+destination however small it is.
+
 ## Check the result
 
 Entering a world logs its collider size to the browser console:

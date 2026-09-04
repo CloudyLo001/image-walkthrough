@@ -259,7 +259,7 @@
         "manifestVersion": 1,
         "kind": "asset",
         "assetType": "world",
-        "assetId": "j976ghkrmkg4fph7g83ywn6tsn8drw14"
+        "assetId": "j97123bgv3xba0jew0kczhpxh98drwzy"
       },
       "transform": {
         "position": [
@@ -283,7 +283,7 @@
         "artifactId": "world_runtime_rad",
         "role": "environment",
         "format": "rad",
-        "runtimeUrl": "https://cdn.mint.gg/rad/endless-illustrated-crop-fields-f0d84ee14b73effd-lod.rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/distant-red-roof-fields-50ac2b853bcefe85-lod.rad",
         "renderer": "@sparkjsdev/spark",
         "loaderHint": {
           "renderer": "SparkRenderer",
@@ -295,12 +295,12 @@
           "artifactId": "world_collider",
           "role": "physics_collider",
           "format": "glb",
-          "runtimeUrl": "https://cdn.mint.gg/worlds/endless-illustrated-crop-fields-collider-6e29eb1626b87b45.glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/distant-red-roof-fields-collider-f6cea83a232b4262.glb",
           "loaderHint": "gltf",
           "visible": false,
           "requiredForPhysics": true
         },
-        "byteSize": 33050096
+        "byteSize": 33274216
       },
       "artifacts": {
         "preview_image": {
@@ -308,10 +308,10 @@
           "role": "preview_image",
           "format": "webp",
           "contentType": "image/webp",
-          "filename": "stylized-open-farmland-sn8drw14-preview.webp",
+          "filename": "red-roof-farmland-h98drwzy-preview.webp",
           "localPath": "public/assets/mint/images-1788539022672/preview_image.webp",
           "loaderHint": "image",
-          "byteSize": 42688
+          "byteSize": 54356
         }
       },
       "thumbnailUrl": "public/assets/mint/images-1788539022672/preview_image.webp"

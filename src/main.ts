@@ -468,8 +468,15 @@ class App {
       new THREE.Vector3(center.x, Math.min(top, center.y + 2), center.z),
       new THREE.Vector3(center.x, top, center.z),
     ];
-    const floorY = this.controller.spawnAt(candidates, SPAWN_FACING_YAW);
-    const openDistance = this.controller.faceMostOpenDirection();
+    // A world can name its opening view when the automatic sweep, which just
+    // picks the longest clear line of sight, faces the wrong way in open ground.
+    const facing = this.currentWorld?.spawnFacing;
+    const floorY = this.controller.spawnAt(
+      candidates,
+      facing === undefined ? SPAWN_FACING_YAW : THREE.MathUtils.degToRad(facing),
+    );
+    const openDistance =
+      facing === undefined ? this.controller.faceMostOpenDirection() : -1;
     const size = session.bounds.getSize(new THREE.Vector3());
     console.info(
       "[world] collider bounds %s×%s×%s, floor at %s, eye at %s, open view %sm | load splat %sms, collider %sms, boundsTree %sms, total %sms",
@@ -478,7 +485,7 @@ class App {
       size.z.toFixed(2),
       floorY === null ? "none" : floorY.toFixed(2),
       this.camera.position.y.toFixed(2),
-      openDistance.toFixed(1),
+      openDistance < 0 ? `fixed ${facing}deg` : openDistance.toFixed(1),
       session.timing.splatMs,
       session.timing.colliderMs,
       session.timing.boundsTreeMs,
