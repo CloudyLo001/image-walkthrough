@@ -321,7 +321,7 @@
         "manifestVersion": 1,
         "kind": "asset",
         "assetType": "world",
-        "assetId": "j97cy859990b8zzawbbwvf51rs8dsx7b"
+        "assetId": "j97d9c1022357whtvh3n7th32x8drqwb"
       },
       "transform": {
         "position": [
@@ -345,7 +345,7 @@
         "artifactId": "world_runtime_rad",
         "role": "environment",
         "format": "rad",
-        "runtimeUrl": "https://cdn.mint.gg/rad/universal-theme-park-walkway-f64496e36b844fca-lod.rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/universal-studios-park-f139f133834746e9-lod.rad",
         "renderer": "@sparkjsdev/spark",
         "loaderHint": {
           "renderer": "SparkRenderer",
@@ -357,12 +357,12 @@
           "artifactId": "world_collider",
           "role": "physics_collider",
           "format": "glb",
-          "runtimeUrl": "https://cdn.mint.gg/worlds/universal-theme-park-walkway-collider-7e5ec3019e0c256e.glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/universal-studios-park-collider-d12c39b41ca560da.glb",
           "loaderHint": "gltf",
           "visible": false,
           "requiredForPhysics": true
         },
-        "byteSize": 32256176
+        "byteSize": 32154872
       },
       "artifacts": {
         "preview_image": {
@@ -370,10 +370,10 @@
           "role": "preview_image",
           "format": "webp",
           "contentType": "image/webp",
-          "filename": "globe-plaza-theme-park-rs8dsx7b-preview.webp",
+          "filename": "universal-studios-theme-park-2x8drqwb-preview.webp",
           "localPath": "public/assets/mint/images-1788543465672/preview_image.webp",
           "loaderHint": "image",
-          "byteSize": 55462
+          "byteSize": 50830
         }
       },
       "thumbnailUrl": "public/assets/mint/images-1788543465672/preview_image.webp"

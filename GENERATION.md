@@ -221,6 +221,34 @@ from mid-field to the horizon. Also forbid paths, tracks and fence lines
 leading to a distant subject, since one of those makes it read as a
 destination however small it is.
 
+## When the photos are too small, or must contain readable text
+
+Source resolution caps world quality. Photos around 700 pixels wide produce a
+soft world however good the prompt. Two things help, in order:
+
+1. **Generate a clean anchor with Mint's own image tool.** Describe the anchor
+   scene in a text prompt and run `start_image_generation`. It returns a sharp
+   1408 by 768 image on Mint's CDN that can be passed straight to
+   `start_world_generation` as `image_url`. This is also the only reliable way
+   to get legible lettering: text spelled in the anchor image survives into
+   the world far better than text asked for in the world prompt alone. Ask for
+   the scene empty of people, since crowds resolve badly in a splat.
+2. **Use review mode and look at the preview** before approving. The preview
+   costs about a minute; the final costs seven or more. Download the preview
+   image and check it, then `approve_final_generation` or `revise_preview`.
+
+Keep the original photos as secondary references so the generated anchor does
+not drift from the real place. Drop any reference whose lighting or viewpoint
+contradicts the rest, such as a dusk aerial among daylight ground shots.
+
+Mint's image editor only works on images Mint generated, not on uploads, and
+third party upscalers need their own credits, so generating an anchor is the
+dependable route.
+
+To rebuild an existing world at higher quality, start the new generation with
+the previous world's `chat_id` so Mint keeps the context, then sync under the
+same registry key to replace it in place.
+
 ## Check the result
 
 Entering a world logs its collider size to the browser console:
