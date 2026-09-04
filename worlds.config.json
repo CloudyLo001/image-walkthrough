@@ -24,6 +24,17 @@
         "uploads/images-1788471599089.jpg",
         "uploads/images-1788471611257.jpg"
       ]
+    },
+    "images-1788539022672": {
+      "title": "Farmland And Distant House",
+      "sourceImage": "uploads/images-1788539022672.jpg",
+      "sourceImages": [
+        "uploads/images-1788539022672.jpg",
+        "uploads/images-1788539015414.jpg"
+      ],
+      "lookPrompt": "The house will be very far away, and unreachable. but show the house far away. Ill move in the grass farmland.",
+      "status": "generating",
+      "note": "Building open farmland from 2 photos, about ten minutes"
     }
   }
 }

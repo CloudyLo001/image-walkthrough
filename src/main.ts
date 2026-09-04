@@ -472,13 +472,17 @@ class App {
     const openDistance = this.controller.faceMostOpenDirection();
     const size = session.bounds.getSize(new THREE.Vector3());
     console.info(
-      "[world] collider bounds %s×%s×%s, floor at %s, eye at %s, open view %sm",
+      "[world] collider bounds %s×%s×%s, floor at %s, eye at %s, open view %sm | load splat %sms, collider %sms, boundsTree %sms, total %sms",
       size.x.toFixed(2),
       size.y.toFixed(2),
       size.z.toFixed(2),
       floorY === null ? "none" : floorY.toFixed(2),
       this.camera.position.y.toFixed(2),
       openDistance.toFixed(1),
+      session.timing.splatMs,
+      session.timing.colliderMs,
+      session.timing.boundsTreeMs,
+      session.timing.totalMs,
     );
   }
 

@@ -144,7 +144,6 @@ export class FirstPersonController {
     this.onLockChange = options.onLockChange;
     this.onMovingChange = options.onMovingChange;
     this.onLockUnavailable = options.onLockUnavailable;
-    this.raycaster.firstHitOnly = true;
     this.raycaster.far = GROUND_PROBE;
 
     window.addEventListener("keydown", this.onKeyDown);

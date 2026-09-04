@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "@sparkjsdev/spark": "^2.1.0",
-    "three": "^0.185.1",
-    "three-mesh-bvh": "^0.9.14"
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@types/three": "^0.185.4",

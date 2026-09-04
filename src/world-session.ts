@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { SparkRenderer, SplatFileType, SplatMesh } from "@sparkjsdev/spark";
-import { acceleratedRaycast, computeBoundsTree, disposeBoundsTree } from "three-mesh-bvh";
 import { disposeObject3D, hasUsableBounds } from "./dispose";
 import { createMintGltfLoader } from "./gltf-runtime";
 import type { WorldEntry } from "./registry";
@@ -11,9 +10,12 @@ const WORLD_POSITION = new THREE.Vector3(0, 1.5, 0);
 const WORLD_ROTATION = new THREE.Euler(Math.PI, Math.PI, 0);
 const WORLD_SCALE = 2.5;
 
-THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
-THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
-THREE.Mesh.prototype.raycast = acceleratedRaycast;
+export interface LoadTiming {
+  splatMs: number;
+  colliderMs: number;
+  boundsTreeMs: number;
+  totalMs: number;
+}
 
 export interface WorldSessionInput {
   scene: THREE.Scene;
@@ -29,6 +31,8 @@ export class WorldSession {
   readonly collider: THREE.Object3D;
   readonly colliderMeshes: THREE.Mesh[];
   readonly bounds: THREE.Box3;
+  /** Milliseconds each load phase took, for tuning. */
+  readonly timing: LoadTiming;
   private readonly spark: SparkRenderer;
   private disposed = false;
 
@@ -38,12 +42,14 @@ export class WorldSession {
     collider: THREE.Object3D;
     spark: SparkRenderer;
     bounds: THREE.Box3;
+    timing: LoadTiming;
   }) {
     this.root = input.root;
     this.splat = input.splat;
     this.collider = input.collider;
     this.spark = input.spark;
     this.bounds = input.bounds;
+    this.timing = input.timing;
     this.colliderMeshes = [];
     input.collider.traverse((object) => {
       if (object instanceof THREE.Mesh) this.colliderMeshes.push(object);
@@ -77,12 +83,21 @@ export class WorldSession {
     root.add(splat);
 
     let collider: THREE.Object3D | undefined;
+    const startedAt = performance.now();
+    const timing = { splatMs: 0, colliderMs: 0, boundsTreeMs: 0, totalMs: 0 };
     try {
       input.onProgress?.("Streaming world");
-      const results = await Promise.allSettled([
-        splat.initialized,
-        createMintGltfLoader().loadAsync(colliderUrl),
-      ]);
+      const splatReady = splat.initialized.then((value) => {
+        timing.splatMs = Math.round(performance.now() - startedAt);
+        return value;
+      });
+      const colliderReady = createMintGltfLoader()
+        .loadAsync(colliderUrl)
+        .then((value) => {
+          timing.colliderMs = Math.round(performance.now() - startedAt);
+          return value;
+        });
+      const results = await Promise.allSettled([splatReady, colliderReady]);
       const [splatResult, colliderResult] = results;
       if (colliderResult.status === "fulfilled") collider = colliderResult.value.scene;
       if (splatResult.status === "rejected") {
@@ -105,10 +120,13 @@ export class WorldSession {
         throw new Error("The world collider has no usable geometry.");
       }
 
+      const boundsTreeStart = performance.now();
+      // No spatial index: free flight has no collision, so the collider is only
+      // raycast about thirty times per entry for the spawn and opening sweep.
+      // Building a BVH for that cost more than the rays it served.
       collider.traverse((object) => {
         object.visible = false;
         if (object instanceof THREE.Mesh) {
-          object.geometry.computeBoundsTree();
           const materials = Array.isArray(object.material) ? object.material : [object.material];
           materials.forEach((material) => {
             material.side = THREE.DoubleSide;
@@ -116,7 +134,9 @@ export class WorldSession {
         }
       });
 
-      return new WorldSession({ root, splat, collider, spark, bounds });
+      timing.boundsTreeMs = Math.round(performance.now() - boundsTreeStart);
+      timing.totalMs = Math.round(performance.now() - startedAt);
+      return new WorldSession({ root, splat, collider, spark, bounds, timing });
     } catch (error) {
       if (collider) disposeObject3D(collider);
       root.removeFromParent();
@@ -134,7 +154,6 @@ export class WorldSession {
     this.root.removeFromParent();
     this.spark.removeFromParent();
     this.splat.dispose();
-    this.colliderMeshes.forEach((mesh) => mesh.geometry.disposeBoundsTree?.());
     disposeObject3D(this.collider);
     this.spark.dispose();
     release();
