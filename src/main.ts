@@ -440,6 +440,7 @@ class App {
         onLockUnavailable: () => setLookMode("drag"),
         onMovingChange: (moving) => setMoving(moving),
       });
+      this.controller.setBounds(session.bounds);
       this.placePlayer(session);
       const sphere = session.bounds.getBoundingSphere(new THREE.Sphere());
       this.camera.far = Math.max(2000, sphere.radius * 8);
@@ -524,7 +525,6 @@ class App {
       keys: this.controller?.pressedKeys ?? [],
       look: this.controller?.lookAngles ?? null,
       moving: this.controller?.isMoving ?? false,
-      heightOffset: Number((this.controller?.heightAboveFloor ?? 0).toFixed(3)),
     };
   }
 }

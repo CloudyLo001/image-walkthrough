@@ -90,10 +90,10 @@ function renderHint() {
   ui.canvas.classList.toggle("locked", locked);
   const parts = [
     locked ? null : currentLookMode === "drag" ? "Drag to look" : "Click to look",
-    "WASD move",
+    "WASD fly",
     "Shift faster",
     "←→ turn",
-    "↑↓ height",
+    "↑↓ up/down",
     locked ? "Esc release" : null,
   ];
   ui.hint.textContent = parts.filter(Boolean).join(" · ");
