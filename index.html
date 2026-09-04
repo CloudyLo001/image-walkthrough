@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Photo Walkthrough World</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <canvas id="scene" aria-label="3D world" tabindex="0"></canvas>
+
+    <div id="lobby" class="lobby">
+      <div class="panel">
+        <label id="drop" class="drop" for="file-input" tabindex="0">
+          <span class="drop-title">Drop photos of a room or place</span>
+          <span class="drop-sub">Several photos of the same place become one world you can walk inside.</span>
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden />
+        </label>
+        <p id="upload-note" class="note" hidden></p>
+
+        <section id="photos-box" class="box" hidden>
+          <h2 class="box-title">Photos<span id="photos-count" class="box-count"></span></h2>
+          <ul id="uploads" class="list" aria-label="Photos not yet built into a world"></ul>
+          <label class="look" for="look-prompt">
+            <span class="look-label">How should it look? Optional, applies to the next world you generate.</span>
+            <textarea
+              id="look-prompt"
+              class="look-input"
+              rows="2"
+              maxlength="1200"
+              placeholder="Golden hour light, warm timber and terracotta, softly worn and lived in"
+            ></textarea>
+          </label>
+          <div id="batch-bar" class="batch-bar" hidden>
+            <span id="batch-summary" class="batch-summary"></span>
+            <button id="batch-clear" class="btn" type="button">Clear</button>
+            <button id="batch-generate" class="btn primary" type="button">Generate</button>
+          </div>
+        </section>
+
+        <section id="progress-box" class="box" hidden>
+          <h2 class="box-title">In progress<span id="progress-count" class="box-count"></span></h2>
+          <ul id="progress" class="list" aria-label="Worlds being built"></ul>
+        </section>
+
+        <section id="worlds-box" class="box" hidden>
+          <h2 class="box-title">Environments<span id="worlds-count" class="box-count"></span></h2>
+          <ul id="worlds" class="list" aria-label="Finished worlds"></ul>
+        </section>
+      </div>
+    </div>
+
+    <div id="hud" class="hud" hidden>
+      <div id="status" class="status" role="status" hidden></div>
+      <div class="controls">
+        <span id="hint" class="hint">Click to look · WASD move · Shift run · Esc release</span>
+        <button id="retry" class="btn" type="button" hidden>Retry</button>
+        <button id="exit" class="btn" type="button">Exit</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "worlds": {
+    "cinema-palace": {
+      "title": "Cinema Palace Auditorium"
+    },
+    "japandi-living-room": {
+      "title": "Japandi Living Room",
+      "sourceImage": "uploads/images.jpg"
+    },
+    "cream-city-apartment": {
+      "title": "Cream City Apartment",
+      "sourceImage": "uploads/images-1788462025014.jpg"
+    },
+    "images-1788465019999": {
+      "title": "Jungle Temple Ruins",
+      "sourceImage": "uploads/images-1788465019999.jpg"
+    },
+    "images-1788469948076": {
+      "title": "Temple Complex",
+      "sourceImage": "uploads/images-1788469948076.jpg",
+      "sourceImages": [
+        "uploads/images-1788469948076.jpg",
+        "uploads/images-1788469860838.jpg",
+        "uploads/images-1788471599089.jpg",
+        "uploads/images-1788471611257.jpg"
+      ]
+    }
+  }
+}

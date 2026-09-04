@@ -1,0 +1,320 @@
+{
+  "registryVersion": 1,
+  "mintProject": {
+    "projectId": "zd72yw0kc0ac4v3w66snfcfas98dqs45",
+    "name": "Photo Walkthrough World"
+  },
+  "assetRoot": "public/assets/mint",
+  "assets": {
+    "cinema-palace": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97cyknnqcstmz2eszc7g4qhgx8bzk73"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/modern-movie-palace-e7aaa4cd09f1e2f7-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/modern-movie-palace-collider-b26673696be72fbe.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44257152
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "cinema-palace-auditorium-gx8bzk73-preview.webp",
+          "localPath": "public/assets/mint/cinema-palace/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 31196
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/cinema-palace/preview_image.webp"
+    },
+    "cream-city-apartment": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j971g5zbc6w41tmz4zg0zcqcbd8dp5mn"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/expanded-city-apartment-84077b7b589afacd-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/expanded-city-apartment-collider-efa65f43a78bca15.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44400840
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "expansive-city-apartment-bd8dp5mn-preview.webp",
+          "localPath": "public/assets/mint/cream-city-apartment/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 27342
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/cream-city-apartment/preview_image.webp"
+    },
+    "images-1788465019999": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j971qr5qrbd9fn5nstzf7q8xjs8dq26e"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/misty-jungle-temple-complex-2dae8078e17fd897-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/misty-jungle-temple-complex-collider-e4e5a35f47c05e5b.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45440904
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "overgrown-jungle-temple-complex-js8dq26e-preview.webp",
+          "localPath": "public/assets/mint/images-1788465019999/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 46610
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/images-1788465019999/preview_image.webp"
+    },
+    "images-1788469948076": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j977rzy24h26q2mnc927whsb6s8dq1m9"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/misty-jungle-temple-complex-439f4234b9f95983-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/misty-jungle-temple-complex-collider-59ad78e4083d38f6.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44463896
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "mossy-jungle-temple-complex-6s8dq1m9-preview.webp",
+          "localPath": "public/assets/mint/images-1788469948076/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 61696
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/images-1788469948076/preview_image.webp"
+    },
+    "japandi-living-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j974vhj6kmqggzyvefp0srwg098dpwk2"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/mint-modern-home-7e1d9a77e6d2aae6-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/mint-modern-home-collider-93f80bc008b743f2.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43211312
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "modern-glass-garden-home-098dpwk2-preview.webp",
+          "localPath": "public/assets/mint/japandi-living-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 32030
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/japandi-living-room/preview_image.webp"
+    }
+  }
+}

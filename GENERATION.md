@@ -1,0 +1,208 @@
+# Generation recipe
+
+How a photo in `./uploads/` becomes a walkable world. The agent (Claude Code
+with the Mint MCP connected) runs these steps; the browser never calls Mint.
+
+## Always ask for a bigger space
+
+A photo sent on its own produces a small world. Mint builds confident detail
+only around what the camera saw, so an image-only generation gives you roughly
+one room and a few metres of walking before you reach the edge. The first world
+built from a living-room photo measured about 16 by 28 metres, and a straight
+line from the spawn ran into furniture within 2 to 4 metres in every direction.
+
+**Every generation gets an expansion prompt.** It costs no extra credits and
+takes about the same time. Without it you get a room; with it you get somewhere
+to walk.
+
+Write the prompt fresh for each photo rather than pasting a template. Look at
+the image, decide what kind of place it is, and name the neighbouring areas a
+real example of that place would have. The shape to follow:
+
+```text
+Expand this photographed <PLACE> into a large, fully explorable <PLACE TYPE>
+that a person can walk through for a long time. Keep the space in the
+photograph exactly as the anchor, then extend it into generously sized
+connected areas that continue naturally from it: <FOUR TO SIX NAMED AREAS>.
+Every area must share one continuous, unobstructed floor with wide openings
+and clear sightlines between them, so there are no dead ends or blocked
+passages. Keep generous circulation space around all furniture. Maintain the
+same <MATERIALS, LIGHT AND TIME OF DAY> throughout.
+```
+
+Use your judgement on the named areas. A few worked examples:
+
+| Photo | Areas worth naming |
+| --- | --- |
+| Living room | open kitchen and dining area, wide hallway, second lounge, bedroom off the hall, planted courtyard with a path around it |
+| Office desk | open desk floor, meeting rooms along a corridor, kitchenette, breakout lounge, roof terrace |
+| Cafe interior | counter and seating area, mezzanine, back courtyard, kitchen pass, street entrance with pavement seating |
+| Street corner | pavement continuing both ways, a side street, a small square, shopfronts you can walk up to, an alley |
+| Hotel lobby | reception hall, lounge and bar, lift lobby, corridor of rooms, garden terrace |
+| Museum gallery | connected galleries in sequence, central atrium, staircase to a second floor, cafe, courtyard |
+| Game screenshot | whatever the setting implies, plus an explicit instruction to build only the physical environment with no interface, score, buttons, pickups or characters |
+
+Three rules carry most of the effect:
+
+- **Name specific areas.** Asking for "a bigger space" changes nothing; a list
+  of rooms gets built.
+- **Demand one continuous floor.** The walkthrough grounds the player on the
+  collider mesh. Areas the generator leaves at a different level or behind a
+  closed door are visible but unreachable.
+- **Ask for circulation space.** Tight furniture layouts read as walls to the
+  collider and leave nowhere to walk.
+
+Do not promise a size. The generator decides the footprint; the prompt improves
+the odds, and results vary between runs.
+
+## Several photos of one place
+
+A world can use up to six photos: one anchor plus five more references. More
+real photos of the same place is the single biggest quality lever available,
+because the generator stops inventing the areas it cannot see. Judge it by the
+sharpness of the rooms beyond the anchor view, not just by the collider size.
+
+The photo list lives in `sourceImages`, anchor first. Older entries carry only
+`sourceImage`; read them as `sourceImages ?? [sourceImage]` and never branch on
+which field is present. When you rewrite an entry, preserve **both** fields.
+
+Upload every photo, then pass the anchor's CDN URL as `image_url` and the full
+list (up to six, anchor included) as `source_images`. The anchor decides the
+spawn viewpoint and the title.
+
+For a multi-photo run, add one sentence to the expansion prompt saying the
+photographs are different viewpoints of a single place that must be reconciled
+into one continuous space, and that the named neighbouring areas extend beyond
+what any of them show.
+
+## The look prompt
+
+The Photos box has a text field where the user describes how the world should
+look. Whatever they typed is stored on the entry as `lookPrompt`.
+
+**Their text guides the look; yours keeps the world walkable.** Do not send
+`lookPrompt` to Mint on its own and do not drop your structural prompt because
+they wrote one. Keep writing the part that makes a world big and traversable,
+the named connected areas, the one continuous unobstructed floor, the room to
+move around furniture, and the instruction to build no interface or characters.
+Then let `lookPrompt` govern the material, mood, palette, era, weather and time
+of day, replacing whatever you would have written for those.
+
+Where the two disagree, theirs wins on appearance and yours wins on layout. If
+they ask for something that would break walkability, such as a flooded ruin or
+a room with no floor, honour the look but keep a continuous walkable route
+through it, and say so when you report back.
+
+Quote their words in the prompt rather than paraphrasing, so the wording they
+chose actually reaches the generator.
+
+## The Generate button
+
+A row for an unclaimed upload has a **Generate** button. Pressing it adds the
+world to `worlds.config.json` with `"status": "requested"` and a key derived
+from the anchor filename.
+
+Dropping several photos at once instead creates one entry with
+`"status": "draft"`. **A draft is only a grouping. Never generate a draft.**
+It becomes a real request when the user presses Generate on that row, which
+flips it to `"requested"`. Ticking photos and using the batch bar goes straight
+to `"requested"`.
+
+**Mint has no HTTP API**, so the page cannot start a world itself. The button
+records the request; the agent performs it. Two ways it gets picked up:
+
+- While a Claude session is running with a monitor armed on this file, the
+  request is noticed within about five seconds and generation starts on its
+  own. This is the automatic path.
+- Otherwise the request waits. Any message to Claude prompts it to check for
+  `"status": "requested"` entries and start them.
+
+The lobby separates photos not built yet, worlds in progress, and finished
+environments into three boxes, so a queued world never sits among the photos
+you are still choosing. A requested row shows Stop, so a queued request can be
+withdrawn before any credits are spent. Arm the monitor with:
+
+```text
+Monitor, persistent, polling worlds.config.json every 5s and emitting a line
+for each new entry whose status is "requested".
+```
+
+When starting a requested world, replace the filename-derived title with a real
+one, set `"status": "generating"`, and keep `sourceImage`, `sourceImages` and
+`lookPrompt` untouched.
+
+The Ungroup button on a draft, and Remove on a stopped or failed row, delete the
+entry through the dev server and free its photos.
+
+## Steps
+
+1. Host every photo on a public URL. Mint accepts URLs or base64, and base64 of
+   even a small JPEG is too large to pass through a tool result. Upload each
+   local file, then use the returned CDN URLs, keeping the anchor first.
+2. Call `start_world_generation` with `project_id` from `mint-assets.json`, the
+   anchor as `image_url`, every photo in `source_images`, your expansion prompt,
+   and `mode: "auto"`.
+3. Add the world to `worlds.config.json`, or update the requested entry the
+   Generate button already created, so the app shows a row with a Stop button:
+
+   ```json
+   {
+     "worlds": {
+       "living-room": {
+         "title": "Living Room",
+         "sourceImage": "uploads/living-room.jpg",
+         "sourceImages": [
+           "uploads/living-room.jpg",
+           "uploads/living-room-window.jpg",
+           "uploads/kitchen.jpg"
+         ],
+         "status": "generating"
+       }
+     }
+   }
+   ```
+
+4. Poll `wait_for_status` with `until_stage: "final"`. Stages run preview, then
+   final generation, then post-processing. Expect roughly ten minutes, longer
+   for a larger requested space.
+5. **Check for a stop between polls.** If `worlds.config.json` shows
+   `"status": "cancelled"` for that key, the user pressed Stop: abandon the
+   generation, do not register it, and leave the row as it is.
+6. Fetch `get_asset_artifact_manifest` with `asset_type: "world"`, save it to a
+   temporary JSON file, and register it:
+
+   ```bash
+   npm run mint:sync -- --manifest C:/path/to/manifest.json --key living-room
+   ```
+
+7. Remove the `status` line from `worlds.config.json`. The row switches to
+   Ready with an Enter button. The lobby polls every five seconds while a world
+   is working, so this appears without a manual refresh.
+
+## Stopping a generation
+
+The Stop button on a working row marks it `cancelled` in `worlds.config.json`
+through the dev server.
+
+**Mint has no cancel API.** Stop tells this project to give up on the world: the
+agent stops polling and never registers it. The job keeps running on Mint's
+side and the credits are already spent. Stop is for "I do not want this in my
+app", not for "refund me". A stopped world can be found later in the Mint chat
+if you change your mind.
+
+## Check the result
+
+Entering a world logs its collider size to the browser console:
+
+```text
+[world] collider bounds 15.67×6.13×27.77, floor at -0.12, eye at 1.48, open view 17.8m
+```
+
+The first three numbers are width, height and depth in metres, and `open view`
+is the longest clear line of sight from the spawn. Compare them across runs to
+see whether a prompt actually produced a bigger space. Under about 10 metres
+wide is a single room.
+
+If a world comes back cramped, regenerate with more named areas rather than
+adjusting the app. Size is fixed at generation time and cannot be changed
+afterwards.
