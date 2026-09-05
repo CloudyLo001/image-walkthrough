@@ -130,6 +130,68 @@
       },
       "thumbnailUrl": "public/assets/mint/cream-city-apartment/preview_image.webp"
     },
+    "hidden-ninja-village": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97en3wrjk0wx6ynw82c7pxgth8dvebp"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/hidden-ninja-village-64628c31b573a88d-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/hidden-ninja-village-collider-db3f11c6bca8d781.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 39001392
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "hidden-ninja-village-th8dvebp-preview.webp",
+          "localPath": "public/assets/mint/hidden-ninja-village/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 59586
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/hidden-ninja-village/preview_image.webp"
+    },
     "images-1788465019999": {
       "source": {
         "manifestVersion": 1,
@@ -501,6 +563,130 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/japandi-living-room/preview_image.webp"
+    },
+    "modern-glass-garden-home": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j974vhj6kmqggzyvefp0srwg098dpwk2"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/mint-modern-home-7e1d9a77e6d2aae6-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/mint-modern-home-collider-93f80bc008b743f2.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43211312
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "modern-glass-garden-home-098dpwk2-preview.webp",
+          "localPath": "public/assets/mint/modern-glass-garden-home/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 32030
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/modern-glass-garden-home/preview_image.webp"
+    },
+    "mountain-playground-zones": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97624aq5wtd0f4kp8n1v1q2a58dv2m3"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/mountain-playground-adventure-8a185a867ea42a90-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/mountain-playground-adventure-collider-998f518ecd61cd5c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 34666320
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "mountain-playground-zones-a58dv2m3-preview.webp",
+          "localPath": "public/assets/mint/mountain-playground-zones/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 56294
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/mountain-playground-zones/preview_image.webp"
     }
   }
 }

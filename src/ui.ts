@@ -34,6 +34,9 @@ export const ui = {
   retry: requireElement<HTMLButtonElement>("retry"),
   exit: requireElement<HTMLButtonElement>("exit"),
   lookPrompt: requireElement<HTMLTextAreaElement>("look-prompt"),
+  importBox: requireElement<HTMLDivElement>("import"),
+  importInput: requireElement<HTMLInputElement>("import-link"),
+  importAdd: requireElement<HTMLButtonElement>("import-add"),
   batchBar: requireElement<HTMLDivElement>("batch-bar"),
   batchSummary: requireElement<HTMLSpanElement>("batch-summary"),
   batchClear: requireElement<HTMLButtonElement>("batch-clear"),
@@ -73,6 +76,7 @@ export function setUploadNote(message: string | null, isError = false) {
 export function setAuthoringAvailable(available: boolean) {
   ui.drop.hidden = !available;
   ui.lookPrompt.closest("label")?.toggleAttribute("hidden", !available);
+  ui.importBox.hidden = !available;
 }
 
 export function showLobby(visible: boolean) {
@@ -202,6 +206,7 @@ const PENDING_LABELS: Record<PendingStatus, { label: string; tone?: "busy" | "er
   requested: { label: "Requested", tone: "busy" },
   queued: { label: "Queued", tone: "busy" },
   generating: { label: "Generating", tone: "busy" },
+  importing: { label: "Importing", tone: "busy" },
   failed: { label: "Generation failed", tone: "error" },
   cancelled: { label: "Stopped", tone: "error" },
 };

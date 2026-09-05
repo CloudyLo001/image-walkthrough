@@ -55,6 +55,30 @@
       ],
       "lookPrompt": "Generate high quality rendering gaussian splat for universal studios. I can see various rollers coasters, refer to images and the worlds, and other buildings.",
       "spawnFacing": 180
+    },
+    "images-1788647979076": {
+      "title": "Hidden Leaf Village",
+      "sourceImage": "uploads/images-1788647979076.jpg",
+      "sourceImages": [
+        "uploads/images-1788647979076.jpg",
+        "uploads/images-1788647975067.jpg"
+      ],
+      "lookPrompt": "make a world of the 3D world hidden leaf village. make sure the mount rushmore of hokages are visible to see.",
+      "status": "generating",
+      "note": "Preview approved. Mint is rendering the final world, about 10 minutes.",
+      "requestedAt": "2026-09-05T22:40:10.841Z"
+    },
+    "hidden-ninja-village": {
+      "title": "Hidden Ninja Village",
+      "mintChatId": "ph7fewdv11zz2w8g3smnw3p6hn8dv4an"
+    },
+    "mountain-playground-zones": {
+      "title": "Mountain Playground Zones",
+      "mintChatId": "ph7bjh4bqwa9823jdk97hpw7fh8dtb4f"
+    },
+    "modern-glass-garden-home": {
+      "title": "Modern Glass Garden Home",
+      "mintChatId": "ph7bt2wjdx9dhkh0zmbh5h0by18dqwvp"
     }
   }
 }

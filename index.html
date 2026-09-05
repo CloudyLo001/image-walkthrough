@@ -18,6 +18,25 @@
         </label>
         <p id="upload-note" class="note" hidden></p>
 
+        <div id="import" class="look" hidden>
+          <label class="look-label" for="import-link"
+            >Already made a world in Mint? Paste its link or id.</label
+          >
+          <div class="look-row">
+            <input
+              id="import-link"
+              class="look-input"
+              type="text"
+              inputmode="url"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="200"
+              placeholder="https://mint.gg/chat/…"
+            />
+            <button id="import-add" class="btn primary" type="button">Add</button>
+          </div>
+        </div>
+
         <section id="photos-box" class="box" hidden>
           <h2 class="box-title">Photos<span id="photos-count" class="box-count"></span></h2>
           <ul id="uploads" class="list" aria-label="Photos not yet built into a world"></ul>

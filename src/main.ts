@@ -3,6 +3,7 @@ import { FirstPersonController } from "./first-person";
 import { disposeMintGltfRuntime } from "./gltf-runtime";
 import {
   bundledWorldConfig,
+  isWorking,
   listPendingWorlds,
   listReadyWorlds,
   MAX_WORLD_PHOTOS,
@@ -84,6 +85,12 @@ class App {
         // Not being able to remember it is not worth interrupting anyone.
       }
     });
+    ui.importAdd.addEventListener("click", () => void this.importWorld());
+    ui.importInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      void this.importWorld();
+    });
     ui.retry.addEventListener("click", () => {
       if (this.currentWorld) void this.enterWorld(this.currentWorld);
     });
@@ -160,9 +167,7 @@ class App {
   /** Keep watching while a world is still working, so rows update on their own. */
   private scheduleLobbyPoll(pendingWorlds: PendingWorld[]) {
     window.clearTimeout(this.lobbyPollTimer);
-    const working = pendingWorlds.some(
-      (world) => world.status === "generating" || world.status === "queued",
-    );
+    const working = pendingWorlds.some((world) => isWorking(world.status));
     if (!working || ui.lobby.hidden || !this.uploadsSupported) return;
     this.lobbyPollTimer = window.setTimeout(() => void this.refreshLobby(), 5000);
   }
@@ -235,6 +240,42 @@ class App {
     }
   }
 
+  /**
+   * Add a world that already exists in the user's Mint account. The page cannot
+   * fetch it, so this only records which world to register; the agent finishes it.
+   */
+  private async importWorld() {
+    const link = ui.importInput.value.trim();
+    if (!link) {
+      setUploadNote("Paste a Mint link or asset id.", true);
+      ui.importInput.focus();
+      return;
+    }
+    if (!this.uploadsSupported) {
+      setUploadNote("Importing needs the local dev server (npm run dev).", true);
+      return;
+    }
+    ui.importAdd.disabled = true;
+    setUploadNote("Looking up that world…");
+    try {
+      const response = await fetch("/api/generation/import", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ link }),
+      });
+      const body = (await response.json()) as { worlds?: WorldConfigMap; error?: string };
+      if (!response.ok || !body.worlds) throw new Error(body.error ?? "Could not import it.");
+      this.worldConfig = body.worlds;
+      ui.importInput.value = "";
+      setUploadNote("Added to In progress. Send Claude any message and it will finish the import.");
+      this.renderLobby();
+    } catch (error) {
+      setUploadNote(error instanceof Error ? error.message : "Could not import it.", true);
+    } finally {
+      ui.importAdd.disabled = false;
+    }
+  }
+
   /** Ungroup a draft, or remove a stopped or failed world, freeing its photos. */
   private async forgetWorld(world: PendingWorld) {
     try {
@@ -246,7 +287,11 @@ class App {
       const body = (await response.json()) as { worlds?: WorldConfigMap; error?: string };
       if (!response.ok || !body.worlds) throw new Error(body.error ?? "Could not remove it.");
       this.worldConfig = body.worlds;
-      setUploadNote(`${world.title} removed. Its photos are free again.`);
+      setUploadNote(
+        world.sourceImages.length > 0
+          ? `${world.title} removed. Its photos are free again.`
+          : `${world.title} removed.`,
+      );
       this.renderLobby();
     } catch (error) {
       setUploadNote(error instanceof Error ? error.message : "Could not remove it.", true);

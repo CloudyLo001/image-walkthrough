@@ -6,6 +6,7 @@ import { MAX_WORLD_PHOTOS, worldPhotos } from "./src/world-photos";
 
 const UPLOAD_DIR = path.resolve(process.cwd(), "uploads");
 const WORLD_CONFIG_PATH = path.resolve(process.cwd(), "worlds.config.json");
+const MINT_REGISTRY_PATH = path.resolve(process.cwd(), "mint-assets.json");
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 const IMAGE_TYPES: Record<string, string> = {
   ".jpg": "image/jpeg",
@@ -213,6 +214,116 @@ async function requestWorld(
   return { worlds, key, alreadyQueued: false };
 }
 
+/** Mint asset ids already registered, mapped to their logical key. */
+async function registeredAssetIds() {
+  const byAssetId = new Map<string, string>();
+  try {
+    const raw = await fs.readFile(MINT_REGISTRY_PATH, "utf8");
+    const parsed = JSON.parse(raw) as {
+      assets?: Record<string, { source?: { assetId?: string } }>;
+    };
+    Object.entries(parsed.assets ?? {}).forEach(([key, asset]) => {
+      const id = asset.source?.assetId;
+      if (typeof id === "string" && id) byAssetId.set(id, key);
+    });
+  } catch {
+    // No registry yet means nothing is registered, which is the same answer.
+  }
+  return byAssetId;
+}
+
+const MINT_ID = /^[a-z0-9]{20,64}$/;
+
+interface MintRef {
+  assetId?: string;
+  chatId?: string;
+}
+
+/** Turn a pasted link or id into a Mint reference, or explain why it is not one. */
+function parseMintReference(raw: string): MintRef | { error: string } {
+  const input = raw.trim().replace(/^[<"'`]+|[>"'`]+$/g, "").toLowerCase();
+  if (!input) return { error: "Paste a Mint link or asset id." };
+  if (!/^https?:\/\//.test(input)) {
+    if (!MINT_ID.test(input)) {
+      return {
+        error:
+          "That does not look like a Mint id. Paste the mint.gg link from the address bar, or the asset id on its own.",
+      };
+    }
+    // A bare id is usually an asset id; the agent falls back to a chat lookup.
+    return { assetId: input };
+  }
+  let url: URL;
+  try {
+    url = new URL(input);
+  } catch {
+    return { error: "That link could not be read. Copy it again from the address bar." };
+  }
+  if (url.hostname !== "mint.gg" && !url.hostname.endsWith(".mint.gg")) {
+    return { error: "That is not a mint.gg address. Paste a link from mint.gg." };
+  }
+  const explicit = url.searchParams.get("asset") ?? url.searchParams.get("assetid");
+  if (explicit && MINT_ID.test(explicit)) return { assetId: explicit };
+  const segments = url.pathname.split("/").filter(Boolean);
+  const chatAt = segments.indexOf("chat");
+  if (chatAt !== -1 && MINT_ID.test(segments[chatAt + 1] ?? "")) {
+    return { chatId: segments[chatAt + 1] };
+  }
+  const last = [...segments].reverse().find((segment) => MINT_ID.test(segment));
+  if (last) return { assetId: last };
+  return {
+    error:
+      "There is no Mint id in that link. Open the world in Mint and copy the link from the address bar.",
+  };
+}
+
+function worldTitle(world: WorldRecord | undefined, fallback: string) {
+  return typeof world?.title === "string" ? world.title : fallback;
+}
+
+/**
+ * Record a world the user already made in Mint. Mint has no HTTP API, so the
+ * page cannot fetch it: this entry tells the agent which world to register.
+ */
+async function importWorld(ref: MintRef, source: string) {
+  const { parsed, worlds } = await loadWorlds();
+  const registered = await registeredAssetIds();
+
+  if (ref.assetId && registered.has(ref.assetId)) {
+    const key = registered.get(ref.assetId) as string;
+    return { duplicate: `${worldTitle(worlds[key], key)} is already in your environments.` };
+  }
+  const existing = Object.entries(worlds).find(
+    ([, world]) =>
+      (ref.assetId && world.mintAssetId === ref.assetId) ||
+      (ref.chatId && world.mintChatId === ref.chatId),
+  );
+  if (existing) {
+    const [key, world] = existing;
+    return {
+      duplicate:
+        world.status === "importing"
+          ? "That world is already being imported."
+          : `${worldTitle(world, key)} is already in your environments.`,
+    };
+  }
+
+  // A key that shadows a registered asset would make the row vanish from the lobby.
+  const taken = new Set([...Object.keys(worlds), ...registered.values()]);
+  const key = worldKeyFor(`import-${(ref.assetId ?? ref.chatId ?? "world").slice(0, 8)}`, taken);
+  worlds[key] = {
+    title: "Imported world",
+    status: "importing",
+    note: "Pasted from Mint. Claude finishes this on your next message.",
+    ...(ref.assetId ? { mintAssetId: ref.assetId } : {}),
+    ...(ref.chatId ? { mintChatId: ref.chatId } : {}),
+    mintSource: source.slice(0, 200),
+    importedAt: new Date().toISOString(),
+  };
+  await saveWorlds(parsed, worlds);
+  return { worlds, key };
+}
+
 /** Delete an entry, freeing its photos. Backs Ungroup on drafts and Remove on dead rows. */
 async function forgetWorld(key: string) {
   const { parsed, worlds } = await loadWorlds();
@@ -291,6 +402,26 @@ function uploadsApi(): Plugin {
               error: `${first.name} is already part of ${first.title}.`,
               conflicts: result.conflicts,
             });
+            return;
+          }
+          sendJson(res, 200, result);
+          return;
+        }
+        if (req.method === "POST" && route === "/import") {
+          const body = await readBody(req);
+          const { link } = JSON.parse(body.toString("utf8") || "{}") as { link?: string };
+          if (typeof link !== "string" || !link.trim()) {
+            sendJson(res, 400, { error: "Paste a Mint link or asset id." });
+            return;
+          }
+          const ref = parseMintReference(link);
+          if ("error" in ref) {
+            sendJson(res, 400, { error: ref.error });
+            return;
+          }
+          const result = await importWorld(ref, link.trim());
+          if ("duplicate" in result) {
+            sendJson(res, 409, { error: result.duplicate });
             return;
           }
           sendJson(res, 200, result);

@@ -124,7 +124,7 @@ withdrawn before any credits are spent. Arm the monitor with:
 
 ```text
 Monitor, persistent, polling worlds.config.json every 5s and emitting a line
-for each new entry whose status is "requested".
+for each new entry whose status is "requested" or "importing".
 ```
 
 When starting a requested world, replace the filename-derived title with a real
@@ -189,6 +189,73 @@ agent stops polling and never registers it. The job keeps running on Mint's
 side and the credits are already spent. Stop is for "I do not want this in my
 app", not for "refund me". A stopped world can be found later in the Mint chat
 if you change your mind.
+
+## Importing a world made elsewhere
+
+Not every world starts as a photo here. Worlds built in the Mint chat, or in
+another Mint project, already exist on the account and only need registering.
+
+The lobby has a paste field under the drop zone: a `mint.gg` link or a bare
+asset id, then **Add**. That writes a provisional entry to `worlds.config.json`
+with `"status": "importing"`, plus `mintAssetId` or `mintChatId` and the raw
+`mintSource`. Nothing is spent and nothing runs on Mint. The browser cannot call
+Mint, so the agent finishes it, exactly like a generation request.
+
+1. **Resolve it to an asset id.**
+   - `mintAssetId`: call `get_asset` with `asset_type: "world"` to confirm the
+     user owns it, that the final output is ready, and to read its name.
+   - `mintChatId`, or a bare id `get_asset` cannot find: call `list_my_assets`
+     with **no `project_id`**, so the search covers the whole account including
+     other projects, paging with `cursor` at `limit: 50`. Match the asset whose
+     `chatUrl` ends with the chat id. If a chat holds several worlds, take the
+     newest finished one and say which you chose.
+   - Not found, not owned, or not final: set `"status": "failed"` on the
+     provisional entry with a plain note such as `"Could not find that world in
+     your Mint account."` and stop. The row then offers Remove.
+
+2. **Choose the final key from the world's Mint name**, not from the id:
+   lowercase, non-alphanumerics to `-`, at most 48 characters, such as
+   `hidden-ninja-village`. It must not already exist in `mint-assets.json` or
+   `worlds.config.json`.
+
+3. **Register it.** Fetch `get_asset_artifact_manifest` with
+   `asset_type: "world"`, save it to a temporary JSON file, then:
+
+   ```bash
+   npm run mint:sync -- --manifest C:/path/to/manifest.json --key hidden-ninja-village
+   ```
+
+   The sync keeps `mintProject` from the existing registry, so importing from
+   another Mint project does not repoint the project new generations use.
+
+4. **Rewrite the entry.** Delete the provisional `import-…` key and add the
+   final one:
+
+   ```json
+   {
+     "worlds": {
+       "hidden-ninja-village": {
+         "title": "Hidden Ninja Village",
+         "mintChatId": "ph7fewdv11zz2w8g3smnw3p6hn8dv4an"
+       }
+     }
+   }
+   ```
+
+   No `status`, no `sourceImage`, no `sourceImages`: an imported world has no
+   photos of its own, exactly like `cinema-palace`. Keeping `mintChatId` is what
+   lets the app reject the same link a second time. **Deleting the provisional
+   key is not optional.** Leave it and the lobby shows an "Importing" row that
+   never clears and re-polls every five seconds.
+
+5. **Check for a withdrawal between steps**, the same as the Stop check. An
+   import row offers Remove, so if the provisional key has disappeared from
+   `worlds.config.json` when you come back, the user withdrew it: do not
+   register it and do not recreate the entry.
+
+Writing `mint-assets.json` reloads the page, so a second or two after the sync
+the world appears in Environments on its own. Say so when reporting back, and
+mention that the reload drops anyone currently inside a world back to the lobby.
 
 ## Framing the opening view
 

@@ -212,6 +212,10 @@ html, body {
 }
 .look-input::placeholder { color: rgba(255, 255, 255, 0.3); }
 
+/* One-line variant: a text input sharing its row with a button. */
+.look-row { display: flex; gap: 8px; align-items: center; }
+.look-row .look-input { flex: 1; min-width: 0; }
+
 .item-detail {
   margin-top: 2px;
   font-size: 12px;
