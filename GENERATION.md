@@ -215,8 +215,11 @@ Mint, so the agent finishes it, exactly like a generation request.
 
 2. **Choose the final key from the world's Mint name**, not from the id:
    lowercase, non-alphanumerics to `-`, at most 48 characters, such as
-   `hidden-ninja-village`. It must not already exist in `mint-assets.json` or
-   `worlds.config.json`.
+   `hidden-ninja-village`. If that key already exists in `mint-assets.json` or
+   `worlds.config.json`, add `-2`, `-3` and so on rather than refusing. Nothing
+   stops the same world being imported twice, and two different Mint worlds can
+   share a name, so a taken key is a normal outcome and not a mistake. Give both
+   rows the same title: the key keeps them apart, the user does not need to.
 
 3. **Register it.** Fetch `get_asset_artifact_manifest` with
    `asset_type: "world"`, save it to a temporary JSON file, then:
@@ -243,10 +246,10 @@ Mint, so the agent finishes it, exactly like a generation request.
    ```
 
    No `status`, no `sourceImage`, no `sourceImages`: an imported world has no
-   photos of its own, exactly like `cinema-palace`. Keeping `mintChatId` is what
-   lets the app reject the same link a second time. **Deleting the provisional
-   key is not optional.** Leave it and the lobby shows an "Importing" row that
-   never clears and re-polls every five seconds.
+   photos of its own, exactly like `cinema-palace`. `mintChatId` records where
+   the world came from. **Deleting the provisional key is not optional.** Leave
+   it and the lobby shows an "Importing" row that never clears and re-polls
+   every five seconds.
 
 5. **Check for a withdrawal between steps**, the same as the Stop check. An
    import row offers Remove, so if the provisional key has disappeared from

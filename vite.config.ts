@@ -277,36 +277,17 @@ function parseMintReference(raw: string): MintRef | { error: string } {
   };
 }
 
-function worldTitle(world: WorldRecord | undefined, fallback: string) {
-  return typeof world?.title === "string" ? world.title : fallback;
-}
-
 /**
  * Record a world the user already made in Mint. Mint has no HTTP API, so the
  * page cannot fetch it: this entry tells the agent which world to register.
+ *
+ * The same world may be added more than once. Two Mint worlds can share a name,
+ * and a second row of one world costs nothing but a key, so nothing is refused
+ * here: every add becomes its own entry and its own row.
  */
 async function importWorld(ref: MintRef, source: string) {
   const { parsed, worlds } = await loadWorlds();
   const registered = await registeredAssetIds();
-
-  if (ref.assetId && registered.has(ref.assetId)) {
-    const key = registered.get(ref.assetId) as string;
-    return { duplicate: `${worldTitle(worlds[key], key)} is already in your environments.` };
-  }
-  const existing = Object.entries(worlds).find(
-    ([, world]) =>
-      (ref.assetId && world.mintAssetId === ref.assetId) ||
-      (ref.chatId && world.mintChatId === ref.chatId),
-  );
-  if (existing) {
-    const [key, world] = existing;
-    return {
-      duplicate:
-        world.status === "importing"
-          ? "That world is already being imported."
-          : `${worldTitle(world, key)} is already in your environments.`,
-    };
-  }
 
   // A key that shadows a registered asset would make the row vanish from the lobby.
   const taken = new Set([...Object.keys(worlds), ...registered.values()]);
@@ -419,12 +400,7 @@ function uploadsApi(): Plugin {
             sendJson(res, 400, { error: ref.error });
             return;
           }
-          const result = await importWorld(ref, link.trim());
-          if ("duplicate" in result) {
-            sendJson(res, 409, { error: result.duplicate });
-            return;
-          }
-          sendJson(res, 200, result);
+          sendJson(res, 200, await importWorld(ref, link.trim()));
           return;
         }
         if (req.method === "POST" && route === "/forget") {

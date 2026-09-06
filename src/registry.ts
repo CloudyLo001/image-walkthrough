@@ -58,7 +58,6 @@ export type WorldConfigMap = Record<string, WorldConfig>;
 
 interface RegistryAsset {
   mode?: string;
-  source?: { assetId?: string };
   name?: string;
   displayName?: string;
   thumbnailUrl?: string;
@@ -113,20 +112,13 @@ export function listReadyWorlds(config: WorldConfigMap = bundledWorldConfig): Wo
     .filter((world) => world.runtimeUrl && world.colliderUrl);
 }
 
-/** Asset ids already streaming, so an import row can retire itself. */
-const registeredAssetIds = new Set(
-  Object.values(assets)
-    .filter((asset) => asset.mode === "remote_stream")
-    .map((asset) => asset.source?.assetId)
-    .filter((id): id is string => Boolean(id)),
-);
-
-/** Worlds declared in the config that are not registered yet. */
+/**
+ * Worlds declared in the config that are not registered yet. A row is pending
+ * per key, not per Mint asset: the same world can be imported twice on purpose.
+ */
 export function listPendingWorlds(config: WorldConfigMap = bundledWorldConfig): PendingWorld[] {
   return Object.entries(config)
     .filter(([key]) => assets[key]?.mode !== "remote_stream")
-    // An import registered under its final key leaves the provisional row behind.
-    .filter(([, extra]) => !extra.mintAssetId || !registeredAssetIds.has(extra.mintAssetId))
     .map(([key, extra]) => {
       const photos = worldPhotos(extra);
       return {
