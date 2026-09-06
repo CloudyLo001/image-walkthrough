@@ -519,7 +519,9 @@ export default defineConfig({
   plugins: [uploadsApi()],
   server: {
     host: "127.0.0.1",
-    port: 5190,
+    // The desktop app assigns a free port through PORT when 5190 is taken by
+    // another session's dev server; nothing here depends on the exact port.
+    port: Number(process.env.PORT) || 5190,
     strictPort: true,
     // worlds.config.json is a static import, so every write would otherwise
     // force a full reload and wipe an in-progress selection. The lobby polls
