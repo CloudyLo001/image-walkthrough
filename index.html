@@ -3,13 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Photo Walkthrough World</title>
+    <title>Nostalgic Engine</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <canvas id="scene" aria-label="3D world" tabindex="0"></canvas>
 
     <div id="lobby" class="lobby">
+      <header class="brand">
+        <div class="brand-title">
+          <h1 class="brand-name">Nostalgic Engine</h1>
+          <p class="brand-tagline">Reliving your best memories</p>
+        </div>
+        <div class="brand-credit">
+          <img class="brand-logo" src="/mint-logo.svg" alt="" width="28" height="28" />
+          <span class="brand-credit-text">Built on Mint</span>
+        </div>
+      </header>
+
       <div class="panel">
         <label id="drop" class="drop" for="file-input" tabindex="0">
           <span class="drop-title">Drop photos of a room or place</span>
