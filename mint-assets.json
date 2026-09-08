@@ -749,6 +749,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/mountain-playground-zones/preview_image.webp"
+    },
+    "tropical-railway-district": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97cdck1dr8gbe0bas3vsc3y7s8dvwk2"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/tropical-railway-station-112a5d452f1f500f-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/tropical-railway-station-collider-8c8b60077de8bd3d.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 37549056
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "tropical-railway-district-7s8dvwk2-preview.webp",
+          "localPath": "public/assets/mint/tropical-railway-district/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 48550
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/tropical-railway-district/preview_image.webp"
     }
   }
 }
