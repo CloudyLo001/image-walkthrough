@@ -33,6 +33,7 @@ export const ui = {
   hint: requireElement<HTMLSpanElement>("hint"),
   retry: requireElement<HTMLButtonElement>("retry"),
   exit: requireElement<HTMLButtonElement>("exit"),
+  hudToggle: requireElement<HTMLButtonElement>("hud-toggle"),
   lookPrompt: requireElement<HTMLTextAreaElement>("look-prompt"),
   importBox: requireElement<HTMLDivElement>("import"),
   importInput: requireElement<HTMLInputElement>("import-link"),
@@ -111,6 +112,16 @@ export function setLookMode(mode: LookMode) {
 /** Fade the bottom bar out of the way while the player is moving. */
 export function setMoving(moving: boolean) {
   ui.hud.classList.toggle("moving", moving);
+}
+
+/** Collapse the bottom bar to its handle, or bring the controls back. */
+export function setHudCollapsed(collapsed: boolean) {
+  ui.hud.classList.toggle("collapsed", collapsed);
+  ui.hudToggle.textContent = collapsed ? "▴" : "▾";
+  ui.hudToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  const label = collapsed ? "Show the bar" : "Hide the bar";
+  ui.hudToggle.title = label;
+  ui.hudToggle.setAttribute("aria-label", label);
 }
 
 function formatBytes(bytes: number) {

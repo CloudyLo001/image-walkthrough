@@ -374,6 +374,40 @@ html, body {
 
 .hint { font-size: 13px; color: var(--muted); white-space: nowrap; }
 
+/*
+ * Collapsed, the bar keeps only its own handle, so the world is unobstructed
+ * but there is always something to click to get the controls back.
+ */
+.hud-toggle {
+  min-width: 32px;
+  padding: 6px 10px;
+  line-height: 1;
+  font-size: 12px;
+}
+
+.hud.collapsed .hint,
+.hud.collapsed #retry,
+.hud.collapsed #exit,
+.hud.collapsed .status {
+  display: none;
+}
+
+.hud.collapsed .controls {
+  padding: 4px;
+  opacity: 0.45;
+}
+
+.hud.collapsed .controls:hover,
+.hud.collapsed .controls:focus-within {
+  opacity: 1;
+}
+
+/* A collapsed bar is already out of the way; do not fade it to nothing. */
+.hud.collapsed.moving .controls {
+  opacity: 0.45;
+  pointer-events: auto;
+}
+
 .hud.locked .controls { opacity: 0.3; }
 .hud.locked .controls:hover { opacity: 1; }
 

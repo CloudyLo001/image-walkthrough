@@ -16,6 +16,7 @@ import {
   renderBatchBar,
   renderLists,
   setAuthoringAvailable,
+  setHudCollapsed,
   setLookMode,
   setMoving,
   setStatus,
@@ -27,6 +28,7 @@ import {
 import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
+const HUD_COLLAPSED_KEY = "photo-walkthrough:hud-collapsed";
 const SPAWN_FACING_YAW = 0; // Looks down -Z, matching the production camera direction.
 
 /** Single owner of the renderer, scene, camera, frame loop, resize and world lifecycle. */
@@ -43,6 +45,7 @@ class App {
   private uploadsSupported = true;
   private worldConfig: WorldConfigMap = bundledWorldConfig;
   private lobbyPollTimer: number | undefined;
+  private hudCollapsed = false;
   /** Upload names in tick order; the first is the anchor. */
   private selection: string[] = [];
 
@@ -85,6 +88,14 @@ class App {
         // Not being able to remember it is not worth interrupting anyone.
       }
     });
+    // Someone who wants an unobstructed view usually wants it every time.
+    try {
+      this.hudCollapsed = localStorage.getItem(HUD_COLLAPSED_KEY) === "1";
+    } catch {
+      // Storage can be unavailable; the bar simply starts open.
+    }
+    setHudCollapsed(this.hudCollapsed);
+    ui.hudToggle.addEventListener("click", () => this.toggleHud());
     ui.importAdd.addEventListener("click", () => void this.importWorld());
     ui.importInput.addEventListener("keydown", (event) => {
       if (event.key !== "Enter") return;
@@ -99,6 +110,16 @@ class App {
     this.renderer.setAnimationLoop(() => this.frame());
     void this.refreshLobby();
     this.renderLobby();
+  }
+
+  private toggleHud() {
+    this.hudCollapsed = !this.hudCollapsed;
+    setHudCollapsed(this.hudCollapsed);
+    try {
+      localStorage.setItem(HUD_COLLAPSED_KEY, this.hudCollapsed ? "1" : "0");
+    } catch {
+      // Not remembering it is not worth interrupting anyone.
+    }
   }
 
   private resize() {
