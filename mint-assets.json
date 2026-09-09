@@ -936,6 +936,68 @@
       },
       "thumbnailUrl": "public/assets/mint/serpent-face-flooded-hall/preview_image.webp"
     },
+    "shrek-swamp-treehouse-clearing": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j970xsm8wp00dnkfj60b66tk7h8e3ax4"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/shrek-swamp-cottage-5644e65561591dd0-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/shrek-swamp-cottage-collider-133a7d4a960a3c1c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46041304
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "shrek-swamp-treehouse-clearing-7h8e3ax4-preview.webp",
+          "localPath": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 51370
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp"
+    },
     "tropical-railway-district": {
       "source": {
         "manifestVersion": 1,
