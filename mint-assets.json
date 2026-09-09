@@ -874,6 +874,68 @@
       },
       "thumbnailUrl": "public/assets/mint/mountain-playground-zones/preview_image.webp"
     },
+    "serpent-face-flooded-hall": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97ck214p4xvz0rc3fy17tqkph8e0ymt"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/serpent-gothic-flooded-hall-c7bad1004deb4f16-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/serpent-gothic-flooded-hall-collider-65377f043720a309.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45387944
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "serpent-face-flooded-hall-ph8e0ymt-preview.webp",
+          "localPath": "public/assets/mint/serpent-face-flooded-hall/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 30200
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/serpent-face-flooded-hall/preview_image.webp"
+    },
     "tropical-railway-district": {
       "source": {
         "manifestVersion": 1,
