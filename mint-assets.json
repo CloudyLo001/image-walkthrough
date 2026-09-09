@@ -254,6 +254,68 @@
       },
       "thumbnailUrl": "public/assets/mint/gru-gothic-neighborhood/preview_image.webp"
     },
+    "gru-gothic-suburban-house": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9794zc4n0ebfazqbqfee6gkq18e3j0a"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/gru-s-gothic-suburban-house-07cb566f578d990a-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/gru-s-gothic-suburban-house-collider-f3216a806e5e6f31.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 34951568
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "gru-s-gothic-suburban-house-q18e3j0a-preview.webp",
+          "localPath": "public/assets/mint/gru-gothic-suburban-house/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 30698
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/gru-gothic-suburban-house/preview_image.webp"
+    },
     "hidden-ninja-village": {
       "source": {
         "manifestVersion": 1,
