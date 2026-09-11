@@ -1060,6 +1060,68 @@
       },
       "thumbnailUrl": "public/assets/mint/naruto-valley-of-the-end/preview_image.webp"
     },
+    "red-sandstone-canyon": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j971txkq9h4c9jbvs62kghr1e58e3xqs"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/warm-red-slot-canyon-396b43789f391a79-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/warm-red-slot-canyon-collider-e4a15cde94573ac9.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46525512
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "red-sandstone-canyon-e58e3xqs-preview.webp",
+          "localPath": "public/assets/mint/red-sandstone-canyon/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 62946
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/red-sandstone-canyon/preview_image.webp"
+    },
     "serpent-face-flooded-hall": {
       "source": {
         "manifestVersion": 1,
