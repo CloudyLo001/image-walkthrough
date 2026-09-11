@@ -133,6 +133,32 @@ export function listPendingWorlds(config: WorldConfigMap = bundledWorldConfig): 
     });
 }
 
+/**
+ * Combine the bundled list with the published one, keyed by world. Remote
+ * wins on the shared fields, because every remote row is derived from these
+ * same local files and is only ever newer; bundled keeps the photos, which are
+ * never published. Bundled rows with no remote twin stay (registered but not
+ * yet published), and remote-only rows follow in their published order.
+ */
+export function mergeWorlds(bundled: WorldEntry[], remote: WorldEntry[]): WorldEntry[] {
+  if (remote.length === 0) return bundled;
+  const remoteByKey = new Map(remote.map((world) => [world.key, world]));
+  const merged = bundled.map((local) => {
+    const published = remoteByKey.get(local.key);
+    if (!published) return local;
+    return {
+      ...local,
+      title: published.title,
+      thumbnailUrl: published.thumbnailUrl ?? local.thumbnailUrl,
+      spawnFacing: published.spawnFacing,
+      runtimeUrl: published.runtimeUrl,
+      colliderUrl: published.colliderUrl,
+    };
+  });
+  const seen = new Set(bundled.map((world) => world.key));
+  return [...merged, ...remote.filter((world) => !seen.has(world.key))];
+}
+
 /** True while a world is queued or working, so Stop still means something. */
 export function isStoppable(status: PendingStatus) {
   return status === "requested" || status === "queued" || status === "generating";

@@ -8,10 +8,12 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "mint:sync": "node scripts/sync-mint-assets.mjs --project ."
+    "mint:sync": "node scripts/sync-mint-assets.mjs --project .",
+    "worlds:publish": "node scripts/publish-worlds.mjs"
   },
   "dependencies": {
     "@sparkjsdev/spark": "^2.1.0",
+    "convex": "^1.45.0",
     "three": "^0.185.1"
   },
   "devDependencies": {

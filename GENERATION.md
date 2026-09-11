@@ -178,6 +178,14 @@ entry through the dev server and free its photos.
 7. Remove the `status` line from `worlds.config.json`. The row switches to
    Ready with an Enter button. The lobby polls every five seconds while a world
    is working, so this appears without a manual refresh.
+8. Publish it to the shared site:
+
+   ```bash
+   npm run worlds:publish
+   ```
+
+   Safe to re-run; it uploads only thumbnails that changed. Anyone with the
+   site open sees the new world appear without reloading.
 
 ## Stopping a generation
 
@@ -259,6 +267,8 @@ Mint, so the agent finishes it, exactly like a generation request.
 Writing `mint-assets.json` reloads the page, so a second or two after the sync
 the world appears in Environments on its own. Say so when reporting back, and
 mention that the reload drops anyone currently inside a world back to the lobby.
+
+6. **Publish it** with `npm run worlds:publish`, so the shared site picks it up.
 
 ## Framing the opening view
 

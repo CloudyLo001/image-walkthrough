@@ -7,6 +7,7 @@ import {
   listPendingWorlds,
   listReadyWorlds,
   MAX_WORLD_PHOTOS,
+  mergeWorlds,
   worldPhotoNames,
   type PendingWorld,
   type WorldConfigMap,
@@ -25,6 +26,7 @@ import {
   ui,
   type UploadRecord,
 } from "./ui";
+import { watchRemoteWorlds } from "./remote-worlds";
 import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
@@ -46,6 +48,11 @@ class App {
   private worldConfig: WorldConfigMap = bundledWorldConfig;
   private lobbyPollTimer: number | undefined;
   private hudCollapsed = false;
+  /** The published list, arriving live; empty until Convex answers or when unset. */
+  private remoteWorlds: WorldEntry[] = [];
+  private stopRemoteWorlds: () => void = () => {};
+  /** A ?world=<key> link opens that world as soon as the list holds it. */
+  private deepLinkKey: string | null = new URLSearchParams(location.search).get("world");
   /** Upload names in tick order; the first is the anchor. */
   private selection: string[] = [];
 
@@ -110,6 +117,25 @@ class App {
     this.renderer.setAnimationLoop(() => this.frame());
     void this.refreshLobby();
     this.renderLobby();
+    this.stopRemoteWorlds = watchRemoteWorlds((worlds) => {
+      this.remoteWorlds = worlds;
+      this.renderLobby();
+    });
+  }
+
+  /**
+   * Enter the world a shared link names, once. The parameter is dropped from
+   * the address so Exit lands in the lobby rather than back in the world.
+   */
+  private followDeepLink(readyWorlds: WorldEntry[]) {
+    if (!this.deepLinkKey) return;
+    const world = readyWorlds.find((entry) => entry.key === this.deepLinkKey);
+    if (!world) return;
+    this.deepLinkKey = null;
+    const url = new URL(location.href);
+    url.searchParams.delete("world");
+    history.replaceState(null, "", url);
+    void this.enterWorld(world);
   }
 
   private toggleHud() {
@@ -140,7 +166,8 @@ class App {
 
   private renderLobby() {
     const pendingWorlds = listPendingWorlds(this.worldConfig);
-    const readyWorlds = listReadyWorlds(this.worldConfig);
+    const readyWorlds = mergeWorlds(listReadyWorlds(this.worldConfig), this.remoteWorlds);
+    this.followDeepLink(readyWorlds);
 
     // One place handles photos deleted from disk or claimed while ticked.
     const claimed = new Set(
@@ -578,6 +605,7 @@ class App {
   }
 
   destroy() {
+    this.stopRemoteWorlds();
     this.teardownWorld();
     this.renderer.setAnimationLoop(null);
     this.renderer.dispose();

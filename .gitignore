@@ -3,3 +3,5 @@ dist
 .claude
 uploads/*
 !uploads/.gitkeep
+.env.local
+.env.*.local

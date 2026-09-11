@@ -26,7 +26,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      # Push the Convex functions, then build the site with the production
+      # deployment URL baked in. Needs the CONVEX_DEPLOY_KEY repository secret.
+      - run: npx convex deploy --cmd "npm run build" --cmd-url-env-var-name VITE_CONVEX_URL --yes
+        env:
+          CONVEX_DEPLOY_KEY: ${{ secrets.CONVEX_DEPLOY_KEY }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
