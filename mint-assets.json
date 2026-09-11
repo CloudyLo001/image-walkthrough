@@ -1245,6 +1245,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/tropical-railway-district/preview_image.webp"
+    },
+    "victorian-balloon-house": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97a0qs7rs6ajczcmnnbndmerh8e3rjd"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/victorian-balloon-house-73d9cffd9136ce10-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/victorian-balloon-house-collider-17bb9fc8f7d2027d.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 31594320
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "victorian-balloon-house-rh8e3rjd-preview.webp",
+          "localPath": "public/assets/mint/victorian-balloon-house/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 39074
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/victorian-balloon-house/preview_image.webp"
     }
   }
 }

@@ -108,6 +108,10 @@
     "gru-gothic-suburban-house": {
       "title": "Gru’s Gothic Suburban House",
       "mintChatId": "ph7cgcq49b3w7qb8zr2fm2t5sn8e2gwr"
+    },
+    "victorian-balloon-house": {
+      "title": "Victorian Balloon House",
+      "mintChatId": "ph70798ngw8c5vhj8kpkg6aqm18e3rqv"
     }
   }
 }
