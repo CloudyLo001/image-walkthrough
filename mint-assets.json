@@ -1184,6 +1184,68 @@
       },
       "thumbnailUrl": "public/assets/mint/naruto-valley-of-the-end/preview_image.webp"
     },
+    "neoclassical-garden-estate": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97f7fct3r48bzt0n587zgbmch8e6p5a"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/neoclassical-estate-gardens-aaae75b233e081c7-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/neoclassical-estate-gardens-collider-15d9298ab0ab403c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 31178640
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "neoclassical-garden-estate-ch8e6p5a-preview.webp",
+          "localPath": "public/assets/mint/neoclassical-garden-estate/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 38112
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/neoclassical-garden-estate/preview_image.webp"
+    },
     "red-sandstone-canyon": {
       "source": {
         "manifestVersion": 1,
