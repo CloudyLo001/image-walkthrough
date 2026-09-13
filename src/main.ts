@@ -62,7 +62,9 @@ class App {
       antialias: false,
       powerPreference: "high-performance",
     });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    // Splats are soft by nature, so extra device pixels buy nothing visible and
+    // cost fill rate; a laptop screen at 1.25x was rendering 56% more pixels.
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.scene.background = new THREE.Color(0x0b0b0d);
 

@@ -132,6 +132,13 @@ used to start you standing at eye height on the floor and to face you toward
 the most open direction. Every constant is at the top of
 `src/first-person.ts`.
 
+Frame rate is set by two things: how many splats Spark picks for the view, and
+how many pixels it fills. `LOD_RENDER_SCALE` at the top of
+`src/world-session.ts` skips splats smaller than that many pixels, and the
+renderer is capped at one device pixel per CSS pixel. Both were measured on an
+integrated laptop GPU; a discrete card could raise the pixel cap back to 1.5
+without noticing.
+
 ## Sample world
 
 `cinema-palace` is an existing finished Mint world registered as a sample so
