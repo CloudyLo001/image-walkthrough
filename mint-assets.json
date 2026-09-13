@@ -6,6 +6,68 @@
   },
   "assetRoot": "public/assets/mint",
   "assets": {
+    "bikini-bottom-conch-street": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j970f64j1tmk7t6z15f9q9dak58ebr9d"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/bikini-bottom-open-world-35d6008650918bbc-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/bikini-bottom-open-world-collider-2d8fc0f4f4e06f06.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 41186040
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "bikini-bottom-explorer-k58ebr9d-preview.webp",
+          "localPath": "public/assets/mint/bikini-bottom-conch-street/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 42124
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/bikini-bottom-conch-street/preview_image.webp"
+    },
     "castle-playground-park": {
       "source": {
         "manifestVersion": 1,
@@ -67,6 +129,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/castle-playground-park/preview_image.webp"
+    },
+    "central-park-autumn-walk": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j977ze7154wrkx55gsptxyq3kh8ebjvq"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/autumn-central-park-walk-28116cc1b22d42bc-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/autumn-central-park-walk-collider-a5f5e08f6e0b4967.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43621200
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "autumn-central-park-walk-kh8ebjvq-preview.webp",
+          "localPath": "public/assets/mint/central-park-autumn-walk/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 74644
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/central-park-autumn-walk/preview_image.webp"
     },
     "cinema-palace": {
       "source": {

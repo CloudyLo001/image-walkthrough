@@ -116,6 +116,14 @@
     "red-sandstone-canyon": {
       "title": "Red Sandstone Canyon",
       "mintChatId": "ph7fv80ham6d0tdy5hnd42wqyh8e2dxf"
+    },
+    "central-park-autumn-walk": {
+      "title": "Central Park Autumn Walk",
+      "mintChatId": "ph7827gz3354zqgtt128ygfqgx8eb07p"
+    },
+    "bikini-bottom-conch-street": {
+      "title": "Bikini Bottom",
+      "mintChatId": "ph78myh2n8d7e4ykxb52dmsews8eafv0"
     }
   }
 }
