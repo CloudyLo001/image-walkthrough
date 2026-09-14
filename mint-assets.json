@@ -68,6 +68,68 @@
       },
       "thumbnailUrl": "public/assets/mint/art-deco-luxury-residence/preview_image.webp"
     },
+    "autumn-great-wall-watchtower": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97en3kkanxnj158128ydm77p98e7ew6"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/autumn-great-wall-watchtower-3b8933e718385ff2-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/autumn-great-wall-watchtower-collider-b19d18ea5783891e.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 30292480
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "autumn-great-wall-watchtower-p98e7ew6-preview.webp",
+          "localPath": "public/assets/mint/autumn-great-wall-watchtower/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 38248
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/autumn-great-wall-watchtower/preview_image.webp"
+    },
     "bikini-bottom-conch-street": {
       "source": {
         "manifestVersion": 1,
