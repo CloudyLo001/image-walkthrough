@@ -10,15 +10,6 @@ const WORLD_POSITION = new THREE.Vector3(0, 1.5, 0);
 const WORLD_ROTATION = new THREE.Euler(Math.PI, Math.PI, 0);
 const WORLD_SCALE = 2.5;
 
-/**
- * Smallest on-screen size, in pixels, of a splat the LoD tree will still pick.
- * Spark's default of 1 spends most of the frame on splats too small to see.
- * Measured on an Intel Iris Xe turning in Bikini Bottom: 1 → 12 fps at 1.4M
- * splats, 3 → 25 fps, 4 → 41 fps at 350K splats, with no visible difference
- * in a side-by-side. Spark documents up to 5 as usually indistinguishable.
- */
-const LOD_RENDER_SCALE = 4;
-
 export interface LoadTiming {
   splatMs: number;
   colliderMs: number;
@@ -72,10 +63,13 @@ export class WorldSession {
       throw new Error("This world is missing its runtime or collider URL.");
     }
 
+    // Spark's own LoD defaults: a 2.5M splat target on desktop and splats
+    // down to one pixel. That is what Mint's viewer draws, so the world looks
+    // the same here as on mint.gg. Raising lodRenderScale to 4 had tripled the
+    // frame rate on an Intel Iris Xe but read as noticeably soft next to Mint.
     const spark = new SparkRenderer({
       renderer: input.renderer,
       enableLod: true,
-      lodRenderScale: LOD_RENDER_SCALE,
     });
     input.scene.add(spark);
 

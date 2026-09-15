@@ -132,18 +132,18 @@ used to start you standing at eye height on the floor and to face you toward
 the most open direction. Every constant is at the top of
 `src/first-person.ts`.
 
-Frame rate is set almost entirely by how many splats Spark draws, and that
-number grows with the screen: the same world drew 534K splats at 1280×720 and
-1.13M at 1920×1080, taking three times as long. So the app does not pick one
-setting. `src/quality.ts` watches the measured frame time inside a world and
-holds 60 fps by lowering the splat budget in steps, and only once that is at
-its floor, the render resolution; when there is steady headroom it gives both
-back, resolution first. A 60 Hz screen hides headroom behind vsync, so a window
-that holds the target with no slow frames is probed with a step up, and each
-probe that fails waits twice as long before the next. Every world starts at
-500K splats and sharpens from there. `LOD_RENDER_SCALE` in `src/world-session.ts` separately skips splats
-smaller than four pixels, and the renderer is capped at one device pixel per
-CSS pixel. `__photoWorld.debug().quality` in the console shows the live numbers.
+Worlds render at the same quality as Mint's own viewer: the screen's native
+pixel ratio and Spark's default LoD settings, which target 2.5M splats on
+desktop and keep splats down to one pixel. Nothing lowers that automatically,
+so on an integrated laptop GPU a large world can run well under 60 fps.
+
+`?quality=auto` on the URL opts into the frame-time controller in
+`src/quality.ts` instead. It holds 60 fps by lowering the splat budget in
+steps, and only once that is at its floor, the render resolution; when there
+is steady headroom it gives both back, resolution first. On an Intel Iris Xe it
+bottoms out at 150K splats and 0.8 pixels per CSS pixel, which is visibly
+softer than mint.gg. `__photoWorld.debug().quality` in the console shows its
+live numbers, and is `null` when it is off.
 
 ## Sample world
 

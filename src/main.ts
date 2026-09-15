@@ -32,9 +32,15 @@ import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
 const HUD_COLLAPSED_KEY = "photo-walkthrough:hud-collapsed";
-// Splats are soft by nature, so extra device pixels buy nothing visible and
-// cost fill rate; a laptop screen at 1.25x was rendering 56% more pixels.
-const MAX_PIXEL_RATIO = Math.min(window.devicePixelRatio, 1);
+// Render at the screen's own resolution, as Mint's viewer does. Capping this at
+// one CSS pixel was the most visible part of the softness on a 1.25x laptop.
+const MAX_PIXEL_RATIO = window.devicePixelRatio;
+/**
+ * Worlds render at Spark's defaults (full resolution, its platform splat
+ * target) so they look the same here as on mint.gg. `?quality=auto` opts into
+ * the frame-time controller instead, which holds 60 fps by cutting detail.
+ */
+const ADAPTIVE_QUALITY = new URLSearchParams(location.search).get("quality") === "auto";
 const SPAWN_FACING_YAW = 0; // Looks down -Z, matching the production camera direction.
 
 /** Single owner of the renderer, scene, camera, frame loop, resize and world lifecycle. */
@@ -534,17 +540,19 @@ class App {
         return;
       }
       this.session = session;
-      this.quality = new AdaptiveQuality({
-        maxPixelRatio: MAX_PIXEL_RATIO,
-        apply: ({ splatBudget, pixelRatio }) => {
-          session.setSplatBudget(splatBudget);
-          if (this.renderer.getPixelRatio() !== pixelRatio) {
-            this.renderer.setPixelRatio(pixelRatio);
-            this.resize();
-          }
-        },
-      });
-      this.quality.reset(performance.now());
+      if (ADAPTIVE_QUALITY) {
+        this.quality = new AdaptiveQuality({
+          maxPixelRatio: MAX_PIXEL_RATIO,
+          apply: ({ splatBudget, pixelRatio }) => {
+            session.setSplatBudget(splatBudget);
+            if (this.renderer.getPixelRatio() !== pixelRatio) {
+              this.renderer.setPixelRatio(pixelRatio);
+              this.resize();
+            }
+          },
+        });
+        this.quality.reset(performance.now());
+      }
       this.controller = new FirstPersonController({
         camera: this.camera,
         domElement: ui.canvas,
@@ -612,7 +620,7 @@ class App {
     this.session?.dispose();
     this.session = null;
     this.quality = null;
-    // The next world starts sharp; the controller lowers it again if it must.
+    // The next world starts sharp; only the opt-in controller ever lowers it.
     if (this.renderer.getPixelRatio() !== MAX_PIXEL_RATIO) {
       this.renderer.setPixelRatio(MAX_PIXEL_RATIO);
       this.resize();
