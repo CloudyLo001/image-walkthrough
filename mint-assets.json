@@ -1928,6 +1928,68 @@
       },
       "thumbnailUrl": "public/assets/mint/sunny-go-ocean-voyage/preview_image.webp"
     },
+    "titan-beyond-the-wall": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97ak2byth4f3fwedhmkjmz8jh8efzqq"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/titan-wall-battleground-2f045083a9109b92-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/titan-wall-battleground-collider-4d0ebbdbdc3e77d7.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 32508712
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "titan-beyond-the-wall-jh8efzqq-preview.webp",
+          "localPath": "public/assets/mint/titan-beyond-the-wall/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 42364
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/titan-beyond-the-wall/preview_image.webp"
+    },
     "tropical-railway-district": {
       "source": {
         "manifestVersion": 1,
