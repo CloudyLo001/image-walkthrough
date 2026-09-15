@@ -156,6 +156,10 @@
     "rainy-forest-bus-stop": {
       "title": "Rainy Forest Bus Stop",
       "mintChatId": "ph7e4azr5gze0cem8xgqa1gf8s8ec13w"
+    },
+    "marineford-naval-fortress": {
+      "title": "Marineford Naval Fortress",
+      "mintChatId": "ph79b3ecerr90gd767fad31rz98efe7q"
     }
   }
 }

@@ -1184,6 +1184,68 @@
       },
       "thumbnailUrl": "public/assets/mint/japandi-skyline-living-room/preview_image.webp"
     },
+    "marineford-naval-fortress": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97dmf8tzm12n8gjfk4xj0jbk58eeae3"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/marineford-naval-fortress-09fa829044231288-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/marineford-naval-fortress-collider-ced2af780fbeec14.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 31801440
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "marineford-naval-fortress-k58eeae3-preview.webp",
+          "localPath": "public/assets/mint/marineford-naval-fortress/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 36836
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/marineford-naval-fortress/preview_image.webp"
+    },
     "modern-glass-garden-home": {
       "source": {
         "manifestVersion": 1,
