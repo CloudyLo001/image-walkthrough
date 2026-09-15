@@ -1680,6 +1680,68 @@
       },
       "thumbnailUrl": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp"
     },
+    "sunny-go-ocean-voyage": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9725yd7kvk1tasxk2faws11958ed4sa"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/sunny-go-ocean-voyage-3a7f0d60ffc5ea2a-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/sunny-go-ocean-voyage-collider-2639222378706107.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 34470176
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "sunny-go-ocean-voyage-958ed4sa-preview.webp",
+          "localPath": "public/assets/mint/sunny-go-ocean-voyage/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 34286
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/sunny-go-ocean-voyage/preview_image.webp"
+    },
     "tropical-railway-district": {
       "source": {
         "manifestVersion": 1,
