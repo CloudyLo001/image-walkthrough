@@ -160,6 +160,10 @@
     "marineford-naval-fortress": {
       "title": "Marineford Naval Fortress",
       "mintChatId": "ph79b3ecerr90gd767fad31rz98efe7q"
+    },
+    "high-tech-auto-assembly-plant": {
+      "title": "High Tech Auto Assembly Plant",
+      "mintChatId": "ph712ksh2qtzj7ahre0c5xznv98ee1jg"
     }
   }
 }
