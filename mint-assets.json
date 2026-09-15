@@ -1866,6 +1866,68 @@
       },
       "thumbnailUrl": "public/assets/mint/shibuya-crossing-at-dusk/preview_image.webp"
     },
+    "shibuya-crossing-nightscape": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97ejdcadedk2z5nf3c8strra58eenrd"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/shibuya-crossing-at-night-3b3488e52419be4f-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/shibuya-crossing-at-night-collider-4dbf3fff3908b19f.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42078888
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "shibuya-crossing-nightscape-a58eenrd-preview.webp",
+          "localPath": "public/assets/mint/shibuya-crossing-nightscape/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 65720
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/shibuya-crossing-nightscape/preview_image.webp"
+    },
     "shrek-swamp-treehouse-clearing": {
       "source": {
         "manifestVersion": 1,
