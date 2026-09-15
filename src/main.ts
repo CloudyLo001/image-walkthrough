@@ -26,11 +26,15 @@ import {
   ui,
   type UploadRecord,
 } from "./ui";
+import { AdaptiveQuality } from "./quality";
 import { watchRemoteWorlds } from "./remote-worlds";
 import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
 const HUD_COLLAPSED_KEY = "photo-walkthrough:hud-collapsed";
+// Splats are soft by nature, so extra device pixels buy nothing visible and
+// cost fill rate; a laptop screen at 1.25x was rendering 56% more pixels.
+const MAX_PIXEL_RATIO = Math.min(window.devicePixelRatio, 1);
 const SPAWN_FACING_YAW = 0; // Looks down -Z, matching the production camera direction.
 
 /** Single owner of the renderer, scene, camera, frame loop, resize and world lifecycle. */
@@ -41,6 +45,7 @@ class App {
   private readonly timer = new THREE.Timer();
   private session: WorldSession | null = null;
   private controller: FirstPersonController | null = null;
+  private quality: AdaptiveQuality | null = null;
   private currentWorld: WorldEntry | null = null;
   private loadAttempt = 0;
   private uploads: UploadRecord[] = [];
@@ -62,9 +67,7 @@ class App {
       antialias: false,
       powerPreference: "high-performance",
     });
-    // Splats are soft by nature, so extra device pixels buy nothing visible and
-    // cost fill rate; a laptop screen at 1.25x was rendering 56% more pixels.
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
+    this.renderer.setPixelRatio(MAX_PIXEL_RATIO);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.scene.background = new THREE.Color(0x0b0b0d);
 
@@ -162,8 +165,12 @@ class App {
     this.timer.update();
     const delta = this.timer.getDelta();
     this.controller?.update(delta);
-    if (this.session) this.renderer.render(this.scene, this.camera);
-    else this.renderer.clear();
+    if (this.session) {
+      this.quality?.sample(delta, performance.now());
+      this.renderer.render(this.scene, this.camera);
+    } else {
+      this.renderer.clear();
+    }
   }
 
   private renderLobby() {
@@ -527,6 +534,17 @@ class App {
         return;
       }
       this.session = session;
+      this.quality = new AdaptiveQuality({
+        maxPixelRatio: MAX_PIXEL_RATIO,
+        apply: ({ splatBudget, pixelRatio }) => {
+          session.setSplatBudget(splatBudget);
+          if (this.renderer.getPixelRatio() !== pixelRatio) {
+            this.renderer.setPixelRatio(pixelRatio);
+            this.resize();
+          }
+        },
+      });
+      this.quality.reset(performance.now());
       this.controller = new FirstPersonController({
         camera: this.camera,
         domElement: ui.canvas,
@@ -593,6 +611,12 @@ class App {
     this.controller = null;
     this.session?.dispose();
     this.session = null;
+    this.quality = null;
+    // The next world starts sharp; the controller lowers it again if it must.
+    if (this.renderer.getPixelRatio() !== MAX_PIXEL_RATIO) {
+      this.renderer.setPixelRatio(MAX_PIXEL_RATIO);
+      this.resize();
+    }
   }
 
   exitWorld() {
@@ -632,6 +656,7 @@ class App {
       keys: this.controller?.pressedKeys ?? [],
       look: this.controller?.lookAngles ?? null,
       moving: this.controller?.isMoving ?? false,
+      quality: this.quality?.snapshot() ?? null,
     };
   }
 }

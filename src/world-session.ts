@@ -160,6 +160,12 @@ export class WorldSession {
     }
   }
 
+  /** Target splat count for the LoD tree; Spark reads it on the next update. */
+  setSplatBudget(count: number) {
+    if (this.disposed) return;
+    this.spark.lodSplatCount = count;
+  }
+
   dispose() {
     if (this.disposed) return;
     this.disposed = true;
