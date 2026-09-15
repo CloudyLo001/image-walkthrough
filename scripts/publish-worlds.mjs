@@ -68,9 +68,16 @@ function humanize(key) {
 function localWorlds() {
   const assets = readJson("mint-assets.json").assets ?? {};
   const config = readJson("worlds.config.json").worlds ?? {};
+  // worlds.config.json is appended to as worlds arrive, so its order is time;
+  // `order` counts up from the oldest and the app shows the highest first.
+  const keys = [
+    ...Object.keys(config),
+    ...Object.keys(assets).filter((key) => !(key in config)).sort(),
+  ];
   const worlds = [];
-  for (const [key, asset] of Object.entries(assets)) {
-    if (asset.mode !== "remote_stream") continue;
+  for (const key of keys) {
+    const asset = assets[key];
+    if (asset?.mode !== "remote_stream") continue;
     const runtimeUrl = asset.runtime?.runtimeUrl?.trim();
     const colliderUrl = asset.runtime?.collider?.runtimeUrl?.trim();
     const mintAssetId = asset.source?.assetId;

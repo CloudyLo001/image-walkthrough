@@ -240,7 +240,9 @@ Mint, so the agent finishes it, exactly like a generation request.
    another Mint project does not repoint the project new generations use.
 
 4. **Rewrite the entry.** Delete the provisional `import-…` key and add the
-   final one:
+   final one **at the end of the file**. The lobby lists worlds newest first
+   by their position in `worlds.config.json`, so an entry inserted elsewhere
+   would show up out of order:
 
    ```json
    {

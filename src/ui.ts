@@ -308,6 +308,8 @@ export function renderLists(input: RenderListsInput) {
   const progressRows: HTMLLIElement[] = [];
   const worldRows: HTMLLIElement[] = [];
   const rendered = new Set<string>();
+  /** A ready world's own photo makes a better thumbnail than the Mint preview. */
+  const readyThumbnails = new Map<string, string>();
 
   const placePending = (world: PendingWorld, thumbnail?: string) => {
     rendered.add(world.key);
@@ -320,8 +322,7 @@ export function renderLists(input: RenderListsInput) {
     const thumbnail = `/uploads/${encodeURIComponent(upload.name)}`;
     const anchored = anchorOf.get(upload.name);
     if (anchored?.ready) {
-      rendered.add(anchored.ready.key);
-      worldRows.push(readyItem(anchored.ready, thumbnail));
+      readyThumbnails.set(anchored.ready.key, thumbnail);
       return;
     }
     if (anchored?.pending) {
@@ -352,13 +353,15 @@ export function renderLists(input: RenderListsInput) {
     );
   });
 
-  // Worlds with no upload row of their own, including any whose photo was deleted.
+  // Pending worlds with no upload row of their own, including any whose photo
+  // was deleted.
   input.pendingWorlds
     .filter((world) => !rendered.has(world.key))
     .forEach((world) => placePending(world));
-  input.readyWorlds
-    .filter((world) => !rendered.has(world.key))
-    .forEach((world) => worldRows.push(readyItem(world)));
+  // Ready worlds keep the order they came in, newest first, whatever their source.
+  input.readyWorlds.forEach((world) =>
+    worldRows.push(readyItem(world, readyThumbnails.get(world.key))),
+  );
 
   ui.uploads.replaceChildren(...photoRows);
   ui.progress.replaceChildren(...progressRows);

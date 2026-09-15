@@ -21,7 +21,7 @@ The lobby keeps three boxes, each hidden when empty:
   press Generate to start one.
 - **In progress** — worlds being built, plus stopped or failed ones you can
   remove.
-- **Environments** — finished worlds, ready to walk into.
+- **Environments** — finished worlds, ready to walk into, newest at the top.
 
 The Photos box also has a prompt field. Describe how you want the place to
 look, in materials, mood, palette, era, weather or time of day, and it is

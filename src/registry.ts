@@ -91,10 +91,21 @@ function toBrowserUrl(localPath?: string) {
 }
 
 /** Worlds that are fully generated and registered in mint-assets.json. */
+/**
+ * Ready worlds, newest first. worlds.config.json is appended to as worlds are
+ * registered, so its order is the order they arrived; mint-assets.json is
+ * written alphabetically and says nothing about time. Assets with no config
+ * entry follow, alphabetically.
+ */
 export function listReadyWorlds(config: WorldConfigMap = bundledWorldConfig): WorldEntry[] {
-  return Object.entries(assets)
-    .filter(([, asset]) => asset.mode === "remote_stream")
-    .map(([key, asset]) => {
+  const configured = Object.keys(config).reverse();
+  const unlisted = Object.keys(assets)
+    .filter((key) => !(key in config))
+    .sort();
+  return [...configured, ...unlisted]
+    .filter((key) => assets[key]?.mode === "remote_stream")
+    .map((key) => {
+      const asset = assets[key];
       const extra = config[key] ?? {};
       const photos = worldPhotos(extra);
       return {
@@ -155,8 +166,11 @@ export function mergeWorlds(bundled: WorldEntry[], remote: WorldEntry[]): WorldE
       colliderUrl: published.colliderUrl,
     };
   });
+  // A published world this build does not know is newer than any it does, and
+  // the published list arrives oldest first, so those go on top, reversed.
   const seen = new Set(bundled.map((world) => world.key));
-  return [...merged, ...remote.filter((world) => !seen.has(world.key))];
+  const unseen = remote.filter((world) => !seen.has(world.key)).reverse();
+  return [...unseen, ...merged];
 }
 
 /** True while a world is queued or working, so Stop still means something. */
