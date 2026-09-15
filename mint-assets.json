@@ -1803,6 +1803,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/victorian-balloon-house/preview_image.webp"
+    },
+    "your-name-city-stairway": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97a2f9yb9s46cv51cyg23gnch8eda94"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/your-name-stairway-oversees-tokyo-b87fe688712732f1-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/your-name-stairway-oversees-tokyo-collider-17230a384b255ca2.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 38835448
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "your-name-city-stairway-ch8eda94-preview.webp",
+          "localPath": "public/assets/mint/your-name-city-stairway/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 52016
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/your-name-city-stairway/preview_image.webp"
     }
   }
 }

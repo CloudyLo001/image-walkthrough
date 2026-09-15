@@ -144,6 +144,10 @@
     "autumn-great-wall-watchtower": {
       "title": "Autumn Great Wall Watchtower",
       "mintChatId": "ph7esmb0d3yjyeswnhkya6ps398e6rqe"
+    },
+    "your-name-city-stairway": {
+      "title": "Your Name City Stairway",
+      "mintChatId": "ph7cahtanmt0zecr087pw3cred8ecsjr"
     }
   }
 }
