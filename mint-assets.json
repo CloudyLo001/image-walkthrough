@@ -440,6 +440,68 @@
       },
       "thumbnailUrl": "public/assets/mint/cream-city-apartment/preview_image.webp"
     },
+    "dust-ii-a-site-courtyard": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97aqgt5sw5vq7wmtx7qc91mk18ee7j7"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/dust-ii-bombsite-courtyard-f859e661a0e6913c-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/dust-ii-bombsite-courtyard-collider-59c381a9440896e4.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 39345584
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "dust-ii-a-site-courtyard-k18ee7j7-preview.webp",
+          "localPath": "public/assets/mint/dust-ii-a-site-courtyard/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 41924
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/dust-ii-a-site-courtyard/preview_image.webp"
+    },
     "gru-gothic-neighborhood": {
       "source": {
         "manifestVersion": 1,
