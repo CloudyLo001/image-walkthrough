@@ -32,6 +32,8 @@ html, body {
   display: block;
   outline: none;
   touch-action: none;
+  /* While a video renders the buffer is 16:9; letterbox it rather than stretch. */
+  object-fit: contain;
 }
 
 #scene.locked { cursor: none; }
@@ -387,9 +389,73 @@ html, body {
 
 .hud.collapsed .hint,
 .hud.collapsed #retry,
+.hud.collapsed #record,
 .hud.collapsed #exit,
 .hud.collapsed .status {
   display: none;
+}
+
+/* Recording: the button turns into Done and carries a pulsing red dot. */
+.btn.recording {
+  border-color: rgba(255, 90, 90, 0.6);
+  padding-left: 10px;
+}
+.btn.recording::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--danger);
+  vertical-align: 1px;
+  animation: record-pulse 1.2s ease-in-out infinite;
+}
+@keyframes record-pulse {
+  50% { opacity: 0.25; }
+}
+
+/* The render dialog sits at the top so the frames drawing behind it stay visible. */
+.export {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-items: center;
+  pointer-events: none;
+}
+.export-card {
+  width: min(420px, calc(100vw - 32px));
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  pointer-events: auto;
+  display: grid;
+  gap: 8px;
+}
+.export-title { font-size: 14px; font-weight: 600; }
+.export-detail { font-size: 13px; color: var(--muted); min-height: 1.2em; }
+.export.error .export-detail { color: var(--danger); }
+.export-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.export-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 200ms ease;
+}
+.export.done .export-fill { background: var(--ok); }
+.export-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
 }
 
 .hud.collapsed .controls {

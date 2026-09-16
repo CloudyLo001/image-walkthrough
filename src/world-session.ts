@@ -33,7 +33,8 @@ export class WorldSession {
   readonly bounds: THREE.Box3;
   /** Milliseconds each load phase took, for tuning. */
   readonly timing: LoadTiming;
-  private readonly spark: SparkRenderer;
+  /** Exposed so the video export can drive its updates by hand. */
+  readonly spark: SparkRenderer;
   private disposed = false;
 
   private constructor(input: {

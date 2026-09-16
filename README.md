@@ -145,6 +145,27 @@ bottoms out at 150K splats and 0.8 pixels per CSS pixel, which is visibly
 softer than mint.gg. `__photoWorld.debug().quality` in the console shows its
 live numbers, and is `null` when it is off.
 
+## Recording a flight
+
+Press **Record** on the bar, or R while flying, and fly the route you want.
+Press R or **Done** to stop. The app then renders that flight again from the
+recorded camera path, one frame at a time, and offers the result as an MP4.
+
+Live, a splat world never quite catches up with the camera: every move starts
+a new level-of-detail selection, page downloads and a depth sort, and the
+screen shows whatever is ready when the frame is due. The render in
+`src/video-export.ts` waits for all three to finish before it captures each
+frame, at 1080p and 30 fps whatever the window size, so the video is sharper
+and smoother than the flight was. Each frame costs one full traversal, about a
+second on an Intel Iris Xe, so a thirty-second flight takes around fifteen
+minutes; the dialog shows the estimate and can cancel. Recordings stop on
+their own at two minutes.
+
+Encoding uses the browser's WebCodecs H.264 encoder and `mp4-muxer`; Chrome
+and Edge have it, and the Record button explains itself where it is missing.
+The camera path is `src/camera-path.ts`; frames are resampled from it, so a
+recording made at a stuttering frame rate still plays back smoothly.
+
 ## Sample world
 
 `cinema-palace` is an existing finished Mint world registered as a sample so

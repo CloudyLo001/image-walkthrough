@@ -32,7 +32,15 @@ export const ui = {
   status: requireElement<HTMLDivElement>("status"),
   hint: requireElement<HTMLSpanElement>("hint"),
   retry: requireElement<HTMLButtonElement>("retry"),
+  record: requireElement<HTMLButtonElement>("record"),
   exit: requireElement<HTMLButtonElement>("exit"),
+  exportBox: requireElement<HTMLDivElement>("export"),
+  exportTitle: requireElement<HTMLDivElement>("export-title"),
+  exportDetail: requireElement<HTMLDivElement>("export-detail"),
+  exportFill: requireElement<HTMLDivElement>("export-fill"),
+  exportCancel: requireElement<HTMLButtonElement>("export-cancel"),
+  exportSave: requireElement<HTMLButtonElement>("export-save"),
+  exportClose: requireElement<HTMLButtonElement>("export-close"),
   hudToggle: requireElement<HTMLButtonElement>("hud-toggle"),
   lookPrompt: requireElement<HTMLTextAreaElement>("look-prompt"),
   importBox: requireElement<HTMLDivElement>("import"),
@@ -112,6 +120,44 @@ export function setLookMode(mode: LookMode) {
 /** Fade the bottom bar out of the way while the player is moving. */
 export function setMoving(moving: boolean) {
   ui.hud.classList.toggle("moving", moving);
+}
+
+/** The Record button becomes Done while a flight is being captured. */
+export function setRecording(recording: boolean) {
+  ui.record.classList.toggle("recording", recording);
+  ui.record.textContent = recording ? "Done" : "Record";
+  ui.record.title = recording
+    ? "Stop recording and render the video (R)"
+    : "Record a flight, then render it as a video (R)";
+}
+
+export function formatClock(seconds: number) {
+  const whole = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
+}
+
+export interface ExportView {
+  state: "rendering" | "done" | "error";
+  title: string;
+  detail: string;
+  /** 0 to 1. */
+  progress: number;
+}
+
+/** The dialog that follows a render from first frame to saved file. */
+export function showExport(view: ExportView) {
+  ui.exportBox.hidden = false;
+  ui.exportBox.className = `export${view.state === "rendering" ? "" : ` ${view.state}`}`;
+  ui.exportTitle.textContent = view.title;
+  ui.exportDetail.textContent = view.detail;
+  ui.exportFill.style.width = `${Math.round(Math.min(1, Math.max(0, view.progress)) * 100)}%`;
+  ui.exportCancel.hidden = view.state !== "rendering";
+  ui.exportSave.hidden = view.state !== "done";
+  ui.exportClose.hidden = view.state === "rendering";
+}
+
+export function hideExport() {
+  ui.exportBox.hidden = true;
 }
 
 /** Collapse the bottom bar to its handle, or bring the controls back. */

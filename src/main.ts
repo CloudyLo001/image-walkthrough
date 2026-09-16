@@ -14,20 +14,34 @@ import {
   type WorldEntry,
 } from "./registry";
 import {
+  formatClock,
+  hideExport,
   renderBatchBar,
   renderLists,
   setAuthoringAvailable,
   setHudCollapsed,
   setLookMode,
   setMoving,
+  setRecording,
   setStatus,
   setUploadNote,
+  showExport,
   showLobby,
   ui,
   type UploadRecord,
 } from "./ui";
 import { AdaptiveQuality } from "./quality";
+import { CameraPath } from "./camera-path";
 import { watchRemoteWorlds } from "./remote-worlds";
+import {
+  canExportVideo,
+  EXPORT_FPS,
+  exportVideo,
+  isExportCancelled,
+  outputSize,
+  saveVideo,
+  type ExportResult,
+} from "./video-export";
 import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
@@ -42,6 +56,23 @@ const MAX_PIXEL_RATIO = window.devicePixelRatio;
  */
 const ADAPTIVE_QUALITY = new URLSearchParams(location.search).get("quality") === "auto";
 const SPAWN_FACING_YAW = 0; // Looks down -Z, matching the production camera direction.
+/** A longer flight would take too long to render frame by frame. */
+const MAX_RECORDING_SECONDS = 120;
+const MIN_RECORDING_SECONDS = 0.5;
+
+function isEditableTarget(target: EventTarget | null) {
+  return (
+    target instanceof HTMLElement &&
+    Boolean(target.isContentEditable || target.closest("input, textarea, select"))
+  );
+}
+
+interface Recording {
+  path: CameraPath;
+  startedAt: number;
+  /** When the status line last showed the elapsed time. */
+  shownAt: number;
+}
 
 /** Single owner of the renderer, scene, camera, frame loop, resize and world lifecycle. */
 class App {
@@ -66,6 +97,10 @@ class App {
   private deepLinkKey: string | null = new URLSearchParams(location.search).get("world");
   /** Upload names in tick order; the first is the anchor. */
   private selection: string[] = [];
+  private recording: Recording | null = null;
+  /** Set while a video renders; the live loop stands aside until it is done. */
+  private exportAbort: AbortController | null = null;
+  private exportResult: ExportResult | null = null;
 
   constructor() {
     this.renderer = new THREE.WebGLRenderer({
@@ -86,6 +121,16 @@ class App {
       if (this.controller && !this.controller.isLocked) this.controller.lock();
     });
     ui.exit.addEventListener("click", () => this.exitWorld());
+    ui.record.addEventListener("click", () => this.toggleRecording());
+    // R works while the pointer is locked, when the button cannot be clicked.
+    window.addEventListener("keydown", (event) => {
+      if (event.code !== "KeyR" || event.repeat || isEditableTarget(event.target)) return;
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      this.toggleRecording();
+    });
+    ui.exportCancel.addEventListener("click", () => this.exportAbort?.abort());
+    ui.exportSave.addEventListener("click", () => void this.saveExport());
+    ui.exportClose.addEventListener("click", () => this.closeExport());
     ui.batchClear.addEventListener("click", () => {
       this.selection = [];
       this.renderLobby();
@@ -170,13 +215,149 @@ class App {
   private frame() {
     this.timer.update();
     const delta = this.timer.getDelta();
+    // The export draws its own frames, each once the world has settled.
+    if (this.exportAbort) return;
     this.controller?.update(delta);
     if (this.session) {
-      this.quality?.sample(delta, performance.now());
+      const now = performance.now();
+      if (this.recording) this.sampleRecording(now);
+      this.quality?.sample(delta, now);
       this.renderer.render(this.scene, this.camera);
     } else {
       this.renderer.clear();
     }
+  }
+
+  private toggleRecording() {
+    if (!this.session || this.exportAbort) return;
+    if (this.recording) {
+      void this.finishRecording();
+      return;
+    }
+    if (!canExportVideo()) {
+      setStatus("Recording needs a browser that can encode video, such as Chrome or Edge.", "error", 5000);
+      return;
+    }
+    const now = performance.now();
+    this.recording = { path: new CameraPath(), startedAt: now, shownAt: 0 };
+    this.recording.path.add(0, this.camera);
+    setRecording(true);
+    this.sampleRecording(now);
+  }
+
+  private sampleRecording(now: number) {
+    const recording = this.recording;
+    if (!recording) return;
+    const elapsed = (now - recording.startedAt) / 1000;
+    recording.path.add(elapsed, this.camera);
+    if (elapsed >= MAX_RECORDING_SECONDS) {
+      void this.finishRecording();
+      return;
+    }
+    if (now - recording.shownAt >= 250) {
+      recording.shownAt = now;
+      setStatus(`Recording ${formatClock(elapsed)} · press R or Done to render it`);
+    }
+  }
+
+  private async finishRecording() {
+    const recording = this.recording;
+    const session = this.session;
+    const world = this.currentWorld;
+    if (!recording || !session || !world) return;
+    this.recording = null;
+    setRecording(false);
+    if (recording.path.duration < MIN_RECORDING_SECONDS) {
+      setStatus("That was too short to make a video. Fly for a moment, then press Done.", "error", 4000);
+      return;
+    }
+    setStatus(null);
+    this.controller?.unlock();
+
+    const abort = new AbortController();
+    this.exportAbort = abort;
+    this.exportResult = null;
+    const restore = {
+      position: this.camera.position.clone(),
+      quaternion: this.camera.quaternion.clone(),
+      pixelRatio: this.renderer.getPixelRatio(),
+    };
+    const size = outputSize(window.innerWidth, window.innerHeight);
+    const total = Math.ceil(recording.path.duration * EXPORT_FPS) + 1;
+    showExport({
+      state: "rendering",
+      title: "Rendering your video",
+      detail: `Getting ready · ${total} frames at ${size.width}×${size.height}`,
+      progress: 0,
+    });
+    try {
+      this.renderer.setPixelRatio(1);
+      this.renderer.setSize(size.width, size.height, false);
+      this.camera.aspect = size.width / size.height;
+      this.camera.updateProjectionMatrix();
+      const result = await exportVideo({
+        renderer: this.renderer,
+        scene: this.scene,
+        camera: this.camera,
+        spark: session.spark,
+        path: recording.path,
+        width: size.width,
+        height: size.height,
+        signal: abort.signal,
+        onProgress: ({ frame, total: count, etaSeconds }) => {
+          const eta = etaSeconds === null ? "" : ` · about ${formatClock(etaSeconds)} left`;
+          showExport({
+            state: "rendering",
+            title: "Rendering your video",
+            detail: `Frame ${frame} of ${count}${eta}`,
+            progress: frame / count,
+          });
+        },
+      });
+      this.exportResult = result;
+      const megabytes = (result.blob.size / (1024 * 1024)).toFixed(1);
+      showExport({
+        state: "done",
+        title: "Your video is ready",
+        detail: `${formatClock(result.seconds)} · ${result.width}×${result.height} · ${megabytes} MB`,
+        progress: 1,
+      });
+    } catch (error) {
+      if (isExportCancelled(error) || abort.signal.aborted) {
+        hideExport();
+      } else {
+        showExport({
+          state: "error",
+          title: "The video could not be rendered",
+          detail: error instanceof Error ? error.message : "Something went wrong.",
+          progress: 0,
+        });
+      }
+    } finally {
+      if (this.exportAbort === abort) this.exportAbort = null;
+      this.camera.position.copy(restore.position);
+      this.camera.quaternion.copy(restore.quaternion);
+      this.renderer.setPixelRatio(restore.pixelRatio);
+      this.resize();
+    }
+  }
+
+  private async saveExport() {
+    const result = this.exportResult;
+    const world = this.currentWorld;
+    if (!result) return;
+    ui.exportSave.disabled = true;
+    try {
+      const saved = await saveVideo(result.blob, `${world?.key ?? "world"}-flight.mp4`);
+      if (saved) this.closeExport();
+    } finally {
+      ui.exportSave.disabled = false;
+    }
+  }
+
+  private closeExport() {
+    this.exportResult = null;
+    hideExport();
   }
 
   private renderLobby() {
@@ -615,6 +796,12 @@ class App {
   }
 
   private teardownWorld() {
+    // A recording or render belongs to the world being left.
+    this.exportAbort?.abort();
+    this.exportAbort = null;
+    this.closeExport();
+    this.recording = null;
+    setRecording(false);
     this.controller?.dispose();
     this.controller = null;
     this.session?.dispose();
@@ -650,7 +837,10 @@ class App {
   debugStep(seconds: number, steps = Math.max(1, Math.ceil(seconds * 60))) {
     const dt = seconds / steps;
     for (let index = 0; index < steps; index += 1) this.controller?.update(dt);
-    if (this.session) this.renderer.render(this.scene, this.camera);
+    if (this.session && !this.exportAbort) {
+      if (this.recording) this.sampleRecording(performance.now());
+      this.renderer.render(this.scene, this.camera);
+    }
     return this.debug();
   }
 
@@ -665,7 +855,18 @@ class App {
       look: this.controller?.lookAngles ?? null,
       moving: this.controller?.isMoving ?? false,
       quality: this.quality?.snapshot() ?? null,
+      recording: this.recording
+        ? { seconds: this.recording.path.duration, samples: this.recording.path.size }
+        : null,
+      exporting: this.exportAbort !== null,
+      exportBytes: this.exportResult?.blob.size ?? null,
     };
+  }
+
+  /** Dev-only: start or stop a recording, as the R key would. */
+  debugToggleRecording() {
+    this.toggleRecording();
+    return this.debug();
   }
 }
 

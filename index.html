@@ -85,6 +85,7 @@
       <div class="controls">
         <span id="hint" class="hint">Click to look · WASD move · Shift run · Esc release</span>
         <button id="retry" class="btn" type="button" hidden>Retry</button>
+        <button id="record" class="btn" type="button" title="Record a flight, then render it as a video (R)">Record</button>
         <button id="exit" class="btn" type="button">Exit</button>
         <button
           id="hud-toggle"
@@ -96,6 +97,19 @@
         >
           ▾
         </button>
+      </div>
+    </div>
+
+    <div id="export" class="export" role="dialog" aria-labelledby="export-title" hidden>
+      <div class="export-card">
+        <div id="export-title" class="export-title">Rendering your video</div>
+        <div id="export-detail" class="export-detail"></div>
+        <div class="export-bar" aria-hidden="true"><div id="export-fill" class="export-fill"></div></div>
+        <div class="export-actions">
+          <button id="export-cancel" class="btn" type="button">Cancel</button>
+          <button id="export-save" class="btn primary" type="button" hidden>Save video</button>
+          <button id="export-close" class="btn" type="button" hidden>Close</button>
+        </div>
       </div>
     </div>
 
