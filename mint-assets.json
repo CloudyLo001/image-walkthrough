@@ -564,6 +564,68 @@
       },
       "thumbnailUrl": "public/assets/mint/dust-ii-a-site-courtyard/preview_image.webp"
     },
+    "fenced-suburban-backyard": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979ybbd6fwf3rrmh439w359f58ekg0s"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/suburban-deck-and-swing-set-df2dafabf3cbac13-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/suburban-deck-and-swing-set-collider-7764dae03197cee9.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 37611976
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "fenced-suburban-backyard-f58ekg0s-preview.webp",
+          "localPath": "public/assets/mint/fenced-suburban-backyard/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 42944
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/fenced-suburban-backyard/preview_image.webp"
+    },
     "gru-gothic-neighborhood": {
       "source": {
         "manifestVersion": 1,
