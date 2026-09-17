@@ -1680,6 +1680,68 @@
       },
       "thumbnailUrl": "public/assets/mint/neoclassical-garden-estate/preview_image.webp"
     },
+    "neon-celestial-bedroom": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j970nf9es5n90kynmd65cht1958ej2wm"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/purple-celestial-led-bedroom-8959d5e551807f50-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/purple-celestial-led-bedroom-collider-7ed51b8b72c7d810.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44019088
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "neon-celestial-bedroom-958ej2wm-preview.webp",
+          "localPath": "public/assets/mint/neon-celestial-bedroom/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 44302
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/neon-celestial-bedroom/preview_image.webp"
+    },
     "rainy-forest-bus-stop": {
       "source": {
         "manifestVersion": 1,
