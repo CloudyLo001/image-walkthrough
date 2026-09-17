@@ -256,6 +256,18 @@
     "sterile-solitary-cell": {
       "title": "Sterile Solitary Cell",
       "mintChatId": "ph73cg6gehyrqmbaajcd15sy4x8ekw44"
+    },
+    "barbie-dream-house-salon": {
+      "title": "Barbie Dream House Salon",
+      "mintChatId": "ph7e2c6ewews9ns0trdz2q32xn8ekkp6"
+    },
+    "modern-open-plan-living-room": {
+      "title": "Modern Open Plan Living Room",
+      "mintChatId": "ph7bme5w4w1xjsdphjhw27ak0h8ejtwx"
+    },
+    "anime-evening-living-room": {
+      "title": "Anime Evening Living Room",
+      "mintChatId": "ph7f255ze7y3amq03a2jn71ya58ekhtv"
     }
   }
 }

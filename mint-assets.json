@@ -6,6 +6,68 @@
   },
   "assetRoot": "public/assets/mint",
   "assets": {
+    "anime-evening-living-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97644kej2rbjtxagw9wtb5xvh8ejde7"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/anime-evening-living-room-e28a99bdcc9e4adb-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/anime-evening-living-room-collider-547c377b4a1799d9.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44289040
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "anime-evening-living-room-vh8ejde7-preview.webp",
+          "localPath": "public/assets/mint/anime-evening-living-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 34438
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/anime-evening-living-room/preview_image.webp"
+    },
     "art-deco-luxury-residence": {
       "source": {
         "manifestVersion": 1,
@@ -129,6 +191,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/autumn-great-wall-watchtower/preview_image.webp"
+    },
+    "barbie-dream-house-salon": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97a22pn2xs1vpmbxejjadd1ys8ej9cr"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/barbie-dream-house-living-room-2429da1ddbc4c148-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/barbie-dream-house-living-room-collider-cb2de75c278f736f.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44560144
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "barbie-dream-house-salon-ys8ej9cr-preview.webp",
+          "localPath": "public/assets/mint/barbie-dream-house-salon/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 38274
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/barbie-dream-house-salon/preview_image.webp"
     },
     "barbie-dreamhouse-loft": {
       "source": {
@@ -1927,6 +2051,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/modern-glass-garden-home/preview_image.webp"
+    },
+    "modern-open-plan-living-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j975mf1jpeaxfwcpr8ath8hb258eks3q"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/dusk-modern-open-plan-03d5670eb5d57700-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/dusk-modern-open-plan-collider-37b8598174f8c69c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 41669584
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "modern-open-plan-living-room-258eks3q-preview.webp",
+          "localPath": "public/assets/mint/modern-open-plan-living-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 26894
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/modern-open-plan-living-room/preview_image.webp"
     },
     "moonlit-cliffside-castle": {
       "source": {
