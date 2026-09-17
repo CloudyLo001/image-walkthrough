@@ -204,6 +204,58 @@
     "bleak-middle-school-hallway": {
       "title": "Bleak Middle School Hallway",
       "mintChatId": "ph7c34xkpa98y5nhb173wwbshx8eje8e"
+    },
+    "barbie-dreamhouse-loft": {
+      "title": "Barbie Dreamhouse Loft",
+      "mintChatId": "ph773hws2npv10sh9awwd6rgrn8ejax3"
+    },
+    "neoclassical-mansion-foyer": {
+      "title": "Neoclassical Mansion Foyer",
+      "mintChatId": "ph7d6pf1gs4t0b11bx8fy0c8818ejyrp"
+    },
+    "white-house-formal-parlor": {
+      "title": "White House Formal Parlor",
+      "mintChatId": "ph7dr2mmajxvym2k79a6jx9s2h8ekqrg"
+    },
+    "white-padded-cell": {
+      "title": "White Padded Cell",
+      "mintChatId": "ph7dfw8gesjpm5zynvp8tww9bx8ekvww"
+    },
+    "industrial-loft-interior": {
+      "title": "Industrial Loft Interior",
+      "mintChatId": "ph7e7bvd59qxsr8e78g72qeweh8ej5pb"
+    },
+    "walnut-luxury-dressing-room": {
+      "title": "Walnut Luxury Dressing Room",
+      "mintChatId": "ph76y3gganbf91jqc582frksan8ekk4g"
+    },
+    "contemporary-classic-grand-foyer": {
+      "title": "Contemporary Classic Grand Foyer",
+      "mintChatId": "ph7e265454fk9x8b5axxxfpzed8ej9xn"
+    },
+    "ivory-gold-grand-foyer": {
+      "title": "Ivory Gold Grand Foyer",
+      "mintChatId": "ph716dx3rdvwxrn76hvha9bxth8ekvt2"
+    },
+    "victorian-walnut-foyer": {
+      "title": "Victorian Walnut Foyer",
+      "mintChatId": "ph74xvzrrtjhcpfrkar40jtbps8ej653"
+    },
+    "victorian-garden-house": {
+      "title": "Victorian Garden House",
+      "mintChatId": "ph7e921ba1h1qpcrv4sex0f11s8ejyc1"
+    },
+    "industrial-workshop-lounge": {
+      "title": "Industrial Workshop Lounge",
+      "mintChatId": "ph78jtzd8pz0ezqnhz3yaz2hqn8ejqmq"
+    },
+    "white-house-north-lawn": {
+      "title": "White House North Lawn",
+      "mintChatId": "ph726nhj7xe3ypjhwap1azc7618ejgj9"
+    },
+    "sterile-solitary-cell": {
+      "title": "Sterile Solitary Cell",
+      "mintChatId": "ph73cg6gehyrqmbaajcd15sy4x8ekw44"
     }
   }
 }

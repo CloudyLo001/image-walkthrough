@@ -130,6 +130,68 @@
       },
       "thumbnailUrl": "public/assets/mint/autumn-great-wall-watchtower/preview_image.webp"
     },
+    "barbie-dreamhouse-loft": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9703thy5qh1yb17078ftw04x98ekvrp"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/barbie-dreamhouse-interior-3689b03bac9c9b06-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/barbie-dreamhouse-interior-collider-035355eec81d0278.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42120144
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "barbie-dreamhouse-loft-x98ekvrp-preview.webp",
+          "localPath": "public/assets/mint/barbie-dreamhouse-loft/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 36614
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/barbie-dreamhouse-loft/preview_image.webp"
+    },
     "bikini-bottom-conch-street": {
       "source": {
         "manifestVersion": 1,
@@ -501,6 +563,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/cinema-palace/preview_image.webp"
+    },
+    "contemporary-classic-grand-foyer": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97b84r6hfs3aj1y7mf7nq9g7h8ejf5k"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/contemporary-classic-grand-foyer-4dd39e2c139fa481-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/contemporary-classic-grand-foyer-collider-ea98329934303635.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44712320
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "contemporary-classic-grand-foyer-7h8ejf5k-preview.webp",
+          "localPath": "public/assets/mint/contemporary-classic-grand-foyer/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 39528
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/contemporary-classic-grand-foyer/preview_image.webp"
     },
     "cream-city-apartment": {
       "source": {
@@ -1370,6 +1494,192 @@
       },
       "thumbnailUrl": "public/assets/mint/images-1788647979076/preview_image.webp"
     },
+    "industrial-loft-interior": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979n2dac64t4591dqz3ktrwy58ejh62"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/industrial-loft-interior-11afb7368c5877f6-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/industrial-loft-interior-collider-cec592e9c32c8df6.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45305024
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "industrial-loft-interior-y58ejh62-preview.webp",
+          "localPath": "public/assets/mint/industrial-loft-interior/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 43548
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/industrial-loft-interior/preview_image.webp"
+    },
+    "industrial-workshop-lounge": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97et9c6f5mdg3g8smm2244ex58ej7fm"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/industrial-workshop-lounge-83ab03b037f188a2-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/industrial-workshop-lounge-collider-5f4a9c553340de2b.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43670944
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "industrial-workshop-lounge-x58ej7fm-preview.webp",
+          "localPath": "public/assets/mint/industrial-workshop-lounge/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 44146
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/industrial-workshop-lounge/preview_image.webp"
+    },
+    "ivory-gold-grand-foyer": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97bap6sdrprrgq2xkrqmt3r9n8ekkhf"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/ivory-gold-grand-foyer-4ca497701dedca02-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/ivory-gold-grand-foyer-collider-48d263b73f0b8e62.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45325072
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "ivory-gold-grand-foyer-9n8ekkhf-preview.webp",
+          "localPath": "public/assets/mint/ivory-gold-grand-foyer/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 50122
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/ivory-gold-grand-foyer/preview_image.webp"
+    },
     "japandi-living-room": {
       "source": {
         "manifestVersion": 1,
@@ -1866,6 +2176,68 @@
       },
       "thumbnailUrl": "public/assets/mint/neoclassical-garden-estate/preview_image.webp"
     },
+    "neoclassical-mansion-foyer": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j971gm30t619gn2h12a4g89yrh8ejy5e"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/neoclassical-mansion-foyer-628445174c0457ae-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/neoclassical-mansion-foyer-collider-837f70453063b44b.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45356648
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "neoclassical-mansion-foyer-rh8ejy5e-preview.webp",
+          "localPath": "public/assets/mint/neoclassical-mansion-foyer/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 47312
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/neoclassical-mansion-foyer/preview_image.webp"
+    },
     "neon-celestial-bedroom": {
       "source": {
         "manifestVersion": 1,
@@ -2300,6 +2672,68 @@
       },
       "thumbnailUrl": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp"
     },
+    "sterile-solitary-cell": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97fm6vtyjj3wnm4yyt80m5f4h8ek9qp"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/white-tiled-prison-cell-eaab84fdb567b8ed-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/white-tiled-prison-cell-collider-2bb367497db3a8f1.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44805928
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "sterile-solitary-cell-4h8ek9qp-preview.webp",
+          "localPath": "public/assets/mint/sterile-solitary-cell/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 26846
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/sterile-solitary-cell/preview_image.webp"
+    },
     "sunlit-elementary-hallway": {
       "source": {
         "manifestVersion": 1,
@@ -2671,6 +3105,378 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/victorian-balloon-house/preview_image.webp"
+    },
+    "victorian-garden-house": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97dek0hes56sb4pqsnfm3prtx8ek6p2"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/victorian-garden-estate-860558cf8c9054c6-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/victorian-garden-estate-collider-cfe8f7f0dee447a1.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 38456880
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "victorian-garden-house-tx8ek6p2-preview.webp",
+          "localPath": "public/assets/mint/victorian-garden-house/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 68036
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/victorian-garden-house/preview_image.webp"
+    },
+    "victorian-walnut-foyer": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97cdxfhppyz89f1y756486z7x8ek37v"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/victorian-walnut-foyer-54dac7adb7ee6f5e-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/victorian-walnut-foyer-collider-bd370fd55dc52ce7.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45256800
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "victorian-walnut-foyer-7x8ek37v-preview.webp",
+          "localPath": "public/assets/mint/victorian-walnut-foyer/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 43618
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/victorian-walnut-foyer/preview_image.webp"
+    },
+    "walnut-luxury-dressing-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97arfwjn6xxatfsbn7szt13958ekm3x"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/luxury-walnut-dressing-room-55c2c922abd13893-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/luxury-walnut-dressing-room-collider-f2ef5b6d87ba51c6.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43991112
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "walnut-luxury-dressing-room-958ekm3x-preview.webp",
+          "localPath": "public/assets/mint/walnut-luxury-dressing-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 41068
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/walnut-luxury-dressing-room/preview_image.webp"
+    },
+    "white-house-formal-parlor": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j974vrd6de4vf4dj93dbjvs0b58ek7qm"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/white-house-sitting-room-86d5d977ed3fc035-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/white-house-sitting-room-collider-3f4b2c4b1fc82b6b.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44997280
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "white-house-formal-parlor-b58ek7qm-preview.webp",
+          "localPath": "public/assets/mint/white-house-formal-parlor/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 41702
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/white-house-formal-parlor/preview_image.webp"
+    },
+    "white-house-north-lawn": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97fh5hdje0menznt5zdtjtn298ejpbq"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/white-house-north-lawn-b3f721e10f519b02-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/white-house-north-lawn-collider-75d15fd5c82ab1b1.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 33553504
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "white-house-north-lawn-298ejpbq-preview.webp",
+          "localPath": "public/assets/mint/white-house-north-lawn/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 42008
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/white-house-north-lawn/preview_image.webp"
+    },
+    "white-padded-cell": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j978qkd4zam48apmtpw3h3873n8ejvvg"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/white-padded-confinement-cell-aeb4b57de1e091c9-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/white-padded-confinement-cell-collider-a589d9e71f9c25e0.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 47115656
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "white-padded-cell-3n8ejvvg-preview.webp",
+          "localPath": "public/assets/mint/white-padded-cell/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 31710
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/white-padded-cell/preview_image.webp"
     },
     "your-name-city-stairway": {
       "source": {
