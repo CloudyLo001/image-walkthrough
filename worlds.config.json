@@ -196,6 +196,14 @@
     "fenced-suburban-backyard": {
       "title": "Fenced Suburban Backyard",
       "mintChatId": "ph7d5w4bj3ac4tvp36sjsah0t58eg88c"
+    },
+    "sunlit-elementary-hallway": {
+      "title": "Sunlit Elementary Hallway",
+      "mintChatId": "ph78g0xc5mv3dwgdbp4qr776vn8ejjya"
+    },
+    "bleak-middle-school-hallway": {
+      "title": "Bleak Middle School Hallway",
+      "mintChatId": "ph7c34xkpa98y5nhb173wwbshx8eje8e"
     }
   }
 }

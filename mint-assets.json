@@ -192,6 +192,68 @@
       },
       "thumbnailUrl": "public/assets/mint/bikini-bottom-conch-street/preview_image.webp"
     },
+    "bleak-middle-school-hallway": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97ax29h9zjhcy221bq0wngn018ekxkb"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/bleak-middle-school-hallway-6a8cfa644994871e-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/bleak-middle-school-hallway-collider-17530f6f4eee9625.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42465152
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "bleak-middle-school-hallway-018ekxkb-preview.webp",
+          "localPath": "public/assets/mint/bleak-middle-school-hallway/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 22708
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/bleak-middle-school-hallway/preview_image.webp"
+    },
     "castle-playground-park": {
       "source": {
         "manifestVersion": 1,
@@ -2237,6 +2299,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp"
+    },
+    "sunlit-elementary-hallway": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j973d4psdv073qtahnyea4yn298ejtmv"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/sunlit-elementary-hallway-d3da8b1778800ec4-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/sunlit-elementary-hallway-collider-b6e91c7eea405976.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46349280
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "sunlit-elementary-hallway-298ejtmv-preview.webp",
+          "localPath": "public/assets/mint/sunlit-elementary-hallway/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 69794
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/sunlit-elementary-hallway/preview_image.webp"
     },
     "sunny-go-ocean-voyage": {
       "source": {
