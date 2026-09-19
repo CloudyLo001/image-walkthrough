@@ -6,6 +6,68 @@
   },
   "assetRoot": "public/assets/mint",
   "assets": {
+    "1900s-midwest-farmhouse": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j978y014n2gh780crgksyfj1qx8en7eq"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/1900s-vintage-rural-farmhouse-6610c6df5f3e962a-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/1900s-vintage-rural-farmhouse-collider-bbe90781622b578c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43109832
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "1900s-midwest-farmhouse-qx8en7eq-preview.webp",
+          "localPath": "public/assets/mint/1900s-midwest-farmhouse/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 61720
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/1900s-midwest-farmhouse/preview_image.webp"
+    },
     "anime-evening-living-room": {
       "source": {
         "manifestVersion": 1,
@@ -2858,6 +2920,68 @@
       },
       "thumbnailUrl": "public/assets/mint/shrek-swamp-treehouse-clearing/preview_image.webp"
     },
+    "sierra-granite-cable-summit": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9754q4sjkjxmf9wppnhstkdbn8emqam"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/sierra-granite-cable-summit-c2d9bf33e2e56fb7-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/sierra-granite-cable-summit-collider-0fe636cc260bde1d.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 29242744
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "sierra-granite-cable-summit-bn8emqam-preview.webp",
+          "localPath": "public/assets/mint/sierra-granite-cable-summit/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 53822
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/sierra-granite-cable-summit/preview_image.webp"
+    },
     "sterile-solitary-cell": {
       "source": {
         "manifestVersion": 1,
@@ -3415,6 +3539,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/victorian-walnut-foyer/preview_image.webp"
+    },
+    "volcanic-summit-above-clouds": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97fbgrdaaydatzx5xptvwrr6h8encpz"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/volcanic-summit-above-clouds-c487954f7b7389c8-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/volcanic-summit-above-clouds-collider-833e371b27ab3c8e.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 29630872
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "volcanic-summit-above-clouds-6h8encpz-preview.webp",
+          "localPath": "public/assets/mint/volcanic-summit-above-clouds/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 34560
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/volcanic-summit-above-clouds/preview_image.webp"
     },
     "walnut-luxury-dressing-room": {
       "source": {
