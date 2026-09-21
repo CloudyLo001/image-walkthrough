@@ -1246,6 +1246,68 @@
       },
       "thumbnailUrl": "public/assets/mint/french-classical-palace-foyer/preview_image.webp"
     },
+    "grand-marble-stair-hall": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9786phm08jazhrkf6a19h9hf58etvb1"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/grand-marble-stair-hall-07d751e25c31eb11-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/grand-marble-stair-hall-collider-3bbfe17782793634.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44858592
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "grand-marble-stair-hall-f58etvb1-preview.webp",
+          "localPath": "public/assets/mint/grand-marble-stair-hall/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 42862
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/grand-marble-stair-hall/preview_image.webp"
+    },
     "gru-gothic-neighborhood": {
       "source": {
         "manifestVersion": 1,
