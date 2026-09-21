@@ -304,6 +304,14 @@
     "luxury-open-plan-interior": {
       "title": "Luxury Open Plan Interior",
       "mintChatId": "ph75a3d0pjs3rc0cj8rajmene58et8d4"
+    },
+    "ivory-gold-luxury-bedroom": {
+      "title": "Ivory Gold Luxury Bedroom",
+      "mintChatId": "ph70rbbmhs89jbzgczxgmqw41s8evqtk"
+    },
+    "french-classical-palace-foyer": {
+      "title": "French Classical Palace Foyer",
+      "mintChatId": "ph72v19g56020dr96cnsdqeydx8etj79"
     }
   }
 }

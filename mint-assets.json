@@ -1184,6 +1184,68 @@
       },
       "thumbnailUrl": "public/assets/mint/fenced-suburban-backyard/preview_image.webp"
     },
+    "french-classical-palace-foyer": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979wg2pds9pmhhpsmbkdyqqs58evk33"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/french-classical-palace-foyer-fe63fdc98ed59279-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/french-classical-palace-foyer-collider-98f5a0662a12740a.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45318744
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "french-classical-palace-foyer-s58evk33-preview.webp",
+          "localPath": "public/assets/mint/french-classical-palace-foyer/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 46466
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/french-classical-palace-foyer/preview_image.webp"
+    },
     "gru-gothic-neighborhood": {
       "source": {
         "manifestVersion": 1,
@@ -2051,6 +2113,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/ivory-gold-grand-foyer/preview_image.webp"
+    },
+    "ivory-gold-luxury-bedroom": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97bc25s2kns54b2xscwjn8hdh8evyh5"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/ivory-gold-twilight-bedroom-c99ff87bc2a4911d-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/ivory-gold-twilight-bedroom-collider-aeb0e0668b02f4a0.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43771792
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "ivory-gold-luxury-bedroom-dh8evyh5-preview.webp",
+          "localPath": "public/assets/mint/ivory-gold-luxury-bedroom/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 32852
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/ivory-gold-luxury-bedroom/preview_image.webp"
     },
     "japandi-living-room": {
       "source": {
