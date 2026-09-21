@@ -564,6 +564,68 @@
       },
       "thumbnailUrl": "public/assets/mint/castle-playground-park/preview_image.webp"
     },
+    "celestial-cloud-stairway": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97agbjcbb0magpk9642jksm3d8etk4f"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/celestial-cloud-stairway-165b2b9fb38c0fb8-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/celestial-cloud-stairway-collider-18826116d0d0ff5a.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 41465960
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "celestial-cloud-stairway-3d8etk4f-preview.webp",
+          "localPath": "public/assets/mint/celestial-cloud-stairway/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 24724
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/celestial-cloud-stairway/preview_image.webp"
+    },
     "central-park-autumn-walk": {
       "source": {
         "manifestVersion": 1,
@@ -812,6 +874,68 @@
       },
       "thumbnailUrl": "public/assets/mint/contemporary-classic-grand-foyer/preview_image.webp"
     },
+    "contemporary-glamour-residence": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j974xjh17vx14z61j2ggavsmq18etvqg"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/contemporary-glamour-residence-ffca74100af92203-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/contemporary-glamour-residence-collider-5917055f9b0051c3.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44588424
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "contemporary-glamour-residence-q18etvqg-preview.webp",
+          "localPath": "public/assets/mint/contemporary-glamour-residence/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 46816
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/contemporary-glamour-residence/preview_image.webp"
+    },
     "cream-city-apartment": {
       "source": {
         "manifestVersion": 1,
@@ -935,6 +1059,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/dust-ii-a-site-courtyard/preview_image.webp"
+    },
+    "elegant-two-story-living-space": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9736era2wpvmqmsnsr9hyd0hd8ets4g"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/upscale-open-plan-living-area-19a95183889cd32d-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/upscale-open-plan-living-area-collider-8babc14caafe6f9a.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44350072
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "elegant-two-story-living-space-hd8ets4g-preview.webp",
+          "localPath": "public/assets/mint/elegant-two-story-living-space/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 40982
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/elegant-two-story-living-space/preview_image.webp"
     },
     "fenced-suburban-backyard": {
       "source": {
@@ -1990,6 +2176,68 @@
       },
       "thumbnailUrl": "public/assets/mint/japandi-skyline-living-room/preview_image.webp"
     },
+    "luxury-open-plan-interior": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j974rerrj04c2e2q72zt98qtrs8ev8fk"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/luxury-open-plan-house-4885806ac78c1fb9-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/luxury-open-plan-house-collider-c98b8850fa1ef453.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43053624
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "luxury-open-plan-interior-rs8ev8fk-preview.webp",
+          "localPath": "public/assets/mint/luxury-open-plan-interior/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 27844
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/luxury-open-plan-interior/preview_image.webp"
+    },
     "marineford-naval-fortress": {
       "source": {
         "manifestVersion": 1,
@@ -2547,6 +2795,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/neon-celestial-bedroom/preview_image.webp"
+    },
+    "pink-victorian-mansion": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9756f6spem4pbg1jna57fqpms8evw7w"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/pink-victorian-mansion-94a2f485d55b6b12-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/pink-victorian-mansion-collider-996496429822f146.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 39153256
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "pink-victorian-mansion-ms8evw7w-preview.webp",
+          "localPath": "public/assets/mint/pink-victorian-mansion/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 24144
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/pink-victorian-mansion/preview_image.webp"
     },
     "rainy-forest-bus-stop": {
       "source": {
@@ -3663,6 +3973,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/walnut-luxury-dressing-room/preview_image.webp"
+    },
+    "waterfront-luxury-penthouse": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9777vxar4cxmesm7xj9jhc6bx8evcpd"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/waterfront-luxury-penthouse-aa641c72c34c7ed6-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/waterfront-luxury-penthouse-collider-4723171804942ac3.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42760800
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "waterfront-luxury-penthouse-bx8evcpd-preview.webp",
+          "localPath": "public/assets/mint/waterfront-luxury-penthouse/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 32608
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/waterfront-luxury-penthouse/preview_image.webp"
     },
     "white-house-formal-parlor": {
       "source": {

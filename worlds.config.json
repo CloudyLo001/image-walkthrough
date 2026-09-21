@@ -280,6 +280,30 @@
     "1900s-midwest-farmhouse": {
       "title": "1900s Midwest Farmhouse",
       "mintChatId": "ph7cseyp8qrtmrn4647fydyyy58engxy"
+    },
+    "celestial-cloud-stairway": {
+      "title": "Celestial Cloud Stairway",
+      "mintChatId": "ph78ymexnch53qjvjgkhv23mys8et7c2"
+    },
+    "waterfront-luxury-penthouse": {
+      "title": "Waterfront Luxury Penthouse",
+      "mintChatId": "ph74qfshqmjq63qd0k500v3prd8etffw"
+    },
+    "pink-victorian-mansion": {
+      "title": "Pink Victorian Mansion",
+      "mintChatId": "ph762x5mnr22wqs4cz7qep05pd8evt51"
+    },
+    "contemporary-glamour-residence": {
+      "title": "Contemporary Glamour Residence",
+      "mintChatId": "ph77bkfyqgz10dew3fmav8d8c18evwxf"
+    },
+    "elegant-two-story-living-space": {
+      "title": "Elegant Two Story Living Space",
+      "mintChatId": "ph7c00rqgn36z61kyk00j4n0kx8etb18"
+    },
+    "luxury-open-plan-interior": {
+      "title": "Luxury Open Plan Interior",
+      "mintChatId": "ph75a3d0pjs3rc0cj8rajmene58et8d4"
     }
   }
 }
