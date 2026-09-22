@@ -378,6 +378,130 @@
       },
       "thumbnailUrl": "public/assets/mint/barbie-dreamhouse-loft/preview_image.webp"
     },
+    "baroque-mansion-bedroom": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j975nzeg7xfsngvrsqjd7hdc4s8exmvz"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/baroque-mansion-bedroom-4f2c288ca86af597-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/baroque-mansion-bedroom-collider-c488782a2d056133.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46363104
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "baroque-mansion-bedroom-4s8exmvz-preview.webp",
+          "localPath": "public/assets/mint/baroque-mansion-bedroom/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 47046
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/baroque-mansion-bedroom/preview_image.webp"
+    },
+    "baroque-mansion-salon": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97fpjwmf0a7ntzhwk9w8mrj4d8exqf7"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/baroque-marble-salon-3c1131ad6b2541ff-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/baroque-marble-salon-collider-6fa945a2b349cfa3.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44833776
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "baroque-mansion-salon-4d8exqf7-preview.webp",
+          "localPath": "public/assets/mint/baroque-mansion-salon/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 43048
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/baroque-mansion-salon/preview_image.webp"
+    },
     "bikini-bottom-conch-street": {
       "source": {
         "manifestVersion": 1,
@@ -439,6 +563,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/bikini-bottom-conch-street/preview_image.webp"
+    },
+    "bioluminescent-night-forest": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979hwtqnm11q58jfejpscptjx8ew847"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/bioluminescent-night-forest-4423fbd64931be50-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/bioluminescent-night-forest-collider-a9ee1c3ff3cc0d04.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44737640
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "bioluminescent-night-forest-jx8ew847-preview.webp",
+          "localPath": "public/assets/mint/bioluminescent-night-forest/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 62972
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/bioluminescent-night-forest/preview_image.webp"
     },
     "bleak-middle-school-hallway": {
       "source": {
@@ -1122,6 +1308,68 @@
       },
       "thumbnailUrl": "public/assets/mint/elegant-two-story-living-space/preview_image.webp"
     },
+    "enchanted-mossy-forest-clearing": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97emc2w0jvw8b9b1rpp33d3yd8ewag8"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/mossy-firefly-forest-fa59505b9e07ad90-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/mossy-firefly-forest-collider-841b8e4f0fd491f3.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46008736
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "enchanted-mossy-forest-clearing-yd8ewag8-preview.webp",
+          "localPath": "public/assets/mint/enchanted-mossy-forest-clearing/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 53032
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/enchanted-mossy-forest-clearing/preview_image.webp"
+    },
     "fenced-suburban-backyard": {
       "source": {
         "manifestVersion": 1,
@@ -1245,6 +1493,130 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/french-classical-palace-foyer/preview_image.webp"
+    },
+    "gilded-european-drawing-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97fy0ztz7vg9xqqd3d601dv7x8ex75h"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/palatial-european-sitting-room-154f405faebb0763-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/palatial-european-sitting-room-collider-9eee104310e8ec9a.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46242320
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "gilded-european-drawing-room-7x8ex75h-preview.webp",
+          "localPath": "public/assets/mint/gilded-european-drawing-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 58168
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/gilded-european-drawing-room/preview_image.webp"
+    },
+    "gothic-collegiate-hallway": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j972rda5v1dxtmk5np9ca87exs8ex2t3"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/gothic-collegiate-hallway-0dc81e945e86b765-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/gothic-collegiate-hallway-collider-b089d9cfd49b330c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45822728
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "gothic-collegiate-hallway-xs8ex2t3-preview.webp",
+          "localPath": "public/assets/mint/gothic-collegiate-hallway/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 54860
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/gothic-collegiate-hallway/preview_image.webp"
     },
     "grand-marble-stair-hall": {
       "source": {

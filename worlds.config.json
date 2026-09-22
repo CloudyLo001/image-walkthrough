@@ -316,6 +316,30 @@
     "grand-marble-stair-hall": {
       "title": "Grand Marble Stair Hall",
       "mintChatId": "ph77nw7q7rk374fb5fp719jess8evz7d"
+    },
+    "baroque-mansion-salon": {
+      "title": "Baroque Mansion Salon",
+      "mintChatId": "ph7c7rend3a17wcgn7f67x060d8eww3x"
+    },
+    "baroque-mansion-bedroom": {
+      "title": "Baroque Mansion Bedroom",
+      "mintChatId": "ph70trvv1zj8ncxb9yfxaeb3vs8ewgsf"
+    },
+    "gothic-collegiate-hallway": {
+      "title": "Gothic Collegiate Hallway",
+      "mintChatId": "ph7930jf74znnepqq8t2gb04q58ew11h"
+    },
+    "bioluminescent-night-forest": {
+      "title": "Bioluminescent Night Forest",
+      "mintChatId": "ph78d48zy3mxcznh63wb8rkdbx8ewqn3"
+    },
+    "enchanted-mossy-forest-clearing": {
+      "title": "Enchanted Mossy Forest Clearing",
+      "mintChatId": "ph77fjntqnpq9x87kph8nsa8ws8exc9n"
+    },
+    "gilded-european-drawing-room": {
+      "title": "Gilded European Drawing Room",
+      "mintChatId": "ph7fe7f7n6s5cznx0v5c5tnvz58ewnr4"
     }
   }
 }
