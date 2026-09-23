@@ -688,6 +688,68 @@
       },
       "thumbnailUrl": "public/assets/mint/bleak-middle-school-hallway/preview_image.webp"
     },
+    "bright-supermarket-aisle": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j977yr1n7m4mgq0g26g3rchb5s8ez9dw"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/bright-supermarket-aisle-e35b0baf27d2581b-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/bright-supermarket-aisle-collider-58c238cd29a94f84.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45135232
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "bright-supermarket-aisle-5s8ez9dw-preview.webp",
+          "localPath": "public/assets/mint/bright-supermarket-aisle/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 59742
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/bright-supermarket-aisle/preview_image.webp"
+    },
     "castle-playground-park": {
       "source": {
         "manifestVersion": 1,
@@ -1122,6 +1184,68 @@
       },
       "thumbnailUrl": "public/assets/mint/contemporary-glamour-residence/preview_image.webp"
     },
+    "corporate-cubicle-office": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97498mp9fmjtss78yptechrah8ezrxn"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/corporate-cubicle-office-c084566e7f2159c1-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/corporate-cubicle-office-collider-fa7ed1321c52ef95.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42255824
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "corporate-cubicle-office-ah8ezrxn-preview.webp",
+          "localPath": "public/assets/mint/corporate-cubicle-office/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 35678
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/corporate-cubicle-office/preview_image.webp"
+    },
     "cream-city-apartment": {
       "source": {
         "manifestVersion": 1,
@@ -1432,6 +1556,68 @@
       },
       "thumbnailUrl": "public/assets/mint/fenced-suburban-backyard/preview_image.webp"
     },
+    "forest-arch-house": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97888s03az88gxxht79tmtva58ezyhn"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/forest-arch-house-e1c19c79c5f755d4-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/forest-arch-house-collider-feb048b8a864790b.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44541920
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "forest-arch-house-a58ezyhn-preview.webp",
+          "localPath": "public/assets/mint/forest-arch-house/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 69478
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/forest-arch-house/preview_image.webp"
+    },
     "french-classical-palace-foyer": {
       "source": {
         "manifestVersion": 1,
@@ -1493,6 +1679,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/french-classical-palace-foyer/preview_image.webp"
+    },
+    "fresh-produce-supermarket-aisle": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j976w7khjt7h7czkj60qv6arbx8ezpfm"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/fresh-produce-aisle-4071017c15331f9b-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/fresh-produce-aisle-collider-a467822088f30ffe.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 46027472
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "fresh-produce-supermarket-aisle-bx8ezpfm-preview.webp",
+          "localPath": "public/assets/mint/fresh-produce-supermarket-aisle/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 59592
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/fresh-produce-supermarket-aisle/preview_image.webp"
     },
     "gilded-european-drawing-room": {
       "source": {
@@ -2424,6 +2672,68 @@
       },
       "thumbnailUrl": "public/assets/mint/industrial-loft-interior/preview_image.webp"
     },
+    "industrial-modern-office": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j976pmwn3kdy05qx280hp4hs518ezzdm"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/industrial-modern-office-bd801554f9ded3b9-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/industrial-modern-office-collider-116be8adc9ba5321.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44206072
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "industrial-modern-office-518ezzdm-preview.webp",
+          "localPath": "public/assets/mint/industrial-modern-office/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 48118
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/industrial-modern-office/preview_image.webp"
+    },
     "industrial-workshop-lounge": {
       "source": {
         "manifestVersion": 1,
@@ -2981,6 +3291,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/modern-open-plan-living-room/preview_image.webp"
+    },
+    "modern-open-plan-office": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97cqypenc8qcevmg0514fkb158ezr9s"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/modern-cubicle-office-217b08032ac6c2ab-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/modern-cubicle-office-collider-940ea47c72fbe0c9.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43644168
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "modern-open-plan-office-158ezr9s-preview.webp",
+          "localPath": "public/assets/mint/modern-open-plan-office/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 32246
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/modern-open-plan-office/preview_image.webp"
     },
     "moonlit-cliffside-castle": {
       "source": {
@@ -3540,6 +3912,130 @@
       },
       "thumbnailUrl": "public/assets/mint/red-sandstone-canyon/preview_image.webp"
     },
+    "roman-colosseum-hypogeum": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j973831qt5d4xhwg9hr84bt1ws8ezygs"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/ancient-rome-colosseum-interior-c0522a9bba89cd0f-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/ancient-rome-colosseum-interior-collider-2be7b8526aebbcc7.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 39774008
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "roman-colosseum-hypogeum-ws8ezygs-preview.webp",
+          "localPath": "public/assets/mint/roman-colosseum-hypogeum/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 65234
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/roman-colosseum-hypogeum/preview_image.webp"
+    },
+    "roman-colosseum-plaza": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j972rz9xndrczdxq5xtt1x0khd8eyczf"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/rome-colosseum-plaza-804dc420a328febb-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/rome-colosseum-plaza-collider-ee09c18d3496386c.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 31424024
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "roman-colosseum-plaza-hd8eyczf-preview.webp",
+          "localPath": "public/assets/mint/roman-colosseum-plaza/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 46958
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/roman-colosseum-plaza/preview_image.webp"
+    },
     "serpent-face-flooded-hall": {
       "source": {
         "manifestVersion": 1,
@@ -4097,6 +4593,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/titan-beyond-the-wall/preview_image.webp"
+    },
+    "toys-r-us-storefront": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97c0hs8kqk23y023f915sja4h8eyftw"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/toys-r-us-storefront-a71b6f661b3c1c4a-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/toys-r-us-storefront-collider-6ae54901d15166aa.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 33403160
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "toys-r-us-storefront-4h8eyftw-preview.webp",
+          "localPath": "public/assets/mint/toys-r-us-storefront/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 33856
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/toys-r-us-storefront/preview_image.webp"
     },
     "tropical-railway-district": {
       "source": {

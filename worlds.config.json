@@ -340,6 +340,42 @@
     "gilded-european-drawing-room": {
       "title": "Gilded European Drawing Room",
       "mintChatId": "ph7fe7f7n6s5cznx0v5c5tnvz58ewnr4"
+    },
+    "forest-arch-house": {
+      "title": "Forest Arch House",
+      "mintChatId": "ph7fhmpekm2grmcsec54xh60nd8eytt2"
+    },
+    "roman-colosseum-hypogeum": {
+      "title": "Roman Colosseum Hypogeum",
+      "mintChatId": "ph7f2v18eyg6015rwfb1e2msg98ezvpw"
+    },
+    "roman-colosseum-plaza": {
+      "title": "Roman Colosseum Plaza",
+      "mintChatId": "ph798gkqvm28qf00xkg1hnpwdn8ezedm"
+    },
+    "industrial-modern-office": {
+      "title": "Industrial Modern Office",
+      "mintChatId": "ph79zks04r6wtsce767xzpe7698eyets"
+    },
+    "modern-open-plan-office": {
+      "title": "Modern Open Plan Office",
+      "mintChatId": "ph7d372peph7h7rydstnrj57xd8eytej"
+    },
+    "corporate-cubicle-office": {
+      "title": "Corporate Cubicle Office",
+      "mintChatId": "ph75cbggg67h2dgq7f5j35rnxx8ey1bx"
+    },
+    "fresh-produce-supermarket-aisle": {
+      "title": "Fresh Produce Supermarket Aisle",
+      "mintChatId": "ph7echx5vc1b0bpd39ecezydm58ezhac"
+    },
+    "bright-supermarket-aisle": {
+      "title": "Bright Supermarket Aisle",
+      "mintChatId": "ph76ttwgxajv2c8388680hdpqx8ez9ba"
+    },
+    "toys-r-us-storefront": {
+      "title": "Toys R Us Storefront",
+      "mintChatId": "ph7fvm4wtbr09k3v2cpkt9rwz18eyvxa"
     }
   }
 }
