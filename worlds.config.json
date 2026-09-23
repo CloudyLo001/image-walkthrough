@@ -376,6 +376,10 @@
     "toys-r-us-storefront": {
       "title": "Toys R Us Storefront",
       "mintChatId": "ph7fvm4wtbr09k3v2cpkt9rwz18eyvxa"
+    },
+    "toys-r-us-entrance": {
+      "title": "Toys R Us Entrance",
+      "mintChatId": "ph7da32kvq40pg6nm56gcpdvv98ey740"
     }
   }
 }
