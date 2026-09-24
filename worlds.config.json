@@ -387,7 +387,8 @@
     },
     "cardboard-box-interior": {
       "title": "Cardboard Box Interior",
-      "mintChatId": "ph72mfyy1e0an95v9e2hhcshch8eyk5c"
+      "mintChatId": "ph72mfyy1e0an95v9e2hhcshch8eyk5c",
+      "spawnFacing": 180
     },
     "narrow-red-brick-passage": {
       "title": "Narrow Red Brick Passage",
