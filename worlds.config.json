@@ -393,6 +393,54 @@
     "narrow-red-brick-passage": {
       "title": "Narrow Red Brick Passage",
       "mintChatId": "ph79n31mjnase03j5h8e4b8x098eye2m"
+    },
+    "glass-skydeck-over-downtown": {
+      "title": "Glass Skydeck Over Downtown",
+      "mintChatId": "ph74btg0c26fjmkjd046amyg6s8f0j0w"
+    },
+    "concrete-spiral-shaft": {
+      "title": "Concrete Spiral Shaft",
+      "mintChatId": "ph71daz5dp1sgt2kdqjrwt8cb58f1pe8"
+    },
+    "neon-monster-arcade": {
+      "title": "Neon Monster Arcade",
+      "mintChatId": "ph79c35wkn7z4k9xm9myz05avs8f02j7"
+    },
+    "neon-zombies-arcade-hall": {
+      "title": "Neon Zombies Arcade Hall",
+      "mintChatId": "ph7893r55eqp3hak2bgss9wj018f0xb2"
+    },
+    "google-warehouse-office": {
+      "title": "Google Warehouse Office",
+      "mintChatId": "ph7e9tbnrybdqjr6fzxr7psmgn8f07qg"
+    },
+    "google-atrium-lobby": {
+      "title": "Google Atrium Lobby",
+      "mintChatId": "ph79n9tpyrsyr62z9wz6wfawsh8f1hck"
+    },
+    "modern-office-ping-pong-lounge": {
+      "title": "Modern Office Ping Pong Lounge",
+      "mintChatId": "ph7caxxpg948pgyejy7sr00c4x8f13v0"
+    },
+    "fairy-tale-castle-entrance": {
+      "title": "Fairy Tale Castle Entrance",
+      "mintChatId": "ph77p29nz62v95th1r99yms9w18f0c3a"
+    },
+    "storybook-teacup-garden": {
+      "title": "Storybook Teacup Garden",
+      "mintChatId": "ph798m6gpntrah19413cgvw9jh8f1k6r"
+    },
+    "rustic-cottage-living-room": {
+      "title": "Rustic Cottage Living Room",
+      "mintChatId": "ph713a5e7sn56bjeb64ssqbd4h8f035b"
+    },
+    "dusk-brick-apartment-living-room": {
+      "title": "Dusk Brick Apartment Living Room",
+      "mintChatId": "ph70em0wxgbkz4b4djacfq0eqn8f0ppj"
+    },
+    "coastal-vaulted-bedroom": {
+      "title": "Coastal Vaulted Bedroom",
+      "mintChatId": "ph771ww78sa3sybf5pntqxjcp18f1qyx"
     }
   }
 }
