@@ -375,6 +375,10 @@ class App {
       progress: 0,
     });
     try {
+      // A render is never "in motion", whatever the camera was doing a moment
+      // ago. The frame loop stands aside for the export, so the moving splat
+      // target would otherwise stay latched for every frame of the video.
+      this.motionDetail?.reset();
       this.renderer.setPixelRatio(1);
       this.renderer.setSize(size.width, size.height, false);
       this.camera.aspect = size.width / size.height;
