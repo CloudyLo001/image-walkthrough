@@ -134,8 +134,24 @@ the most open direction. Every constant is at the top of
 
 Worlds render at the same quality as Mint's own viewer: the screen's native
 pixel ratio and Spark's default LoD settings, which target 2.5M splats on
-desktop and keep splats down to one pixel. Nothing lowers that automatically,
-so on an integrated laptop GPU a large world can run well under 60 fps.
+desktop and keep splats down to one pixel. Standing still, that is exactly what
+mint.gg draws, and nothing lowers it.
+
+While the camera is actually moving, the splat target drops to 900K and returns
+250 ms after you stop. A frame costs what it costs in splats and almost nothing
+else: measured on an Intel Iris Xe at 1157×872, one world drew 1.67M splats in
+42 ms (24 fps) and 848K in 28 ms (36 fps), while dropping the render resolution
+by 40% saved under 8% and turning off per-frame sorting saved 1.5 ms. So
+resolution is the wrong thing to cut, and the splat target is the only lever
+worth pulling. Spending it only in motion keeps the still image — the one
+anyone compares against mint.gg — untouched. `?detail=full` turns this off,
+`?detail=600000` sets a different moving target, and `?stats=1` shows the frame
+time, frame rate and splats actually drawn.
+
+The mouse is never smoothed: a look event moves the camera the instant it
+arrives rather than easing toward it over the next frames, which on a GPU where
+a frame is 40 ms is the difference between aiming and steering. Only the arrow
+keys are eased, because they are held down.
 
 `?quality=auto` on the URL opts into the frame-time controller in
 `src/quality.ts` instead. It holds 60 fps by lowering the splat budget in

@@ -42,6 +42,7 @@ import {
   saveVideo,
   type ExportResult,
 } from "./video-export";
+import { MotionDetail } from "./motion-detail";
 import { WorldSession } from "./world-session";
 
 const LOOK_PROMPT_KEY = "photo-walkthrough:look-prompt";
@@ -55,10 +56,60 @@ const MAX_PIXEL_RATIO = window.devicePixelRatio;
  * the frame-time controller instead, which holds 60 fps by cutting detail.
  */
 const ADAPTIVE_QUALITY = new URLSearchParams(location.search).get("quality") === "auto";
+/**
+ * Splats to target while the camera is moving. A frame costs what it costs in
+ * splats, so this is the only setting that buys frame rate worth having, and
+ * it applies only in motion: stand still and the world is back at Spark's
+ * default, pixel for pixel what mint.gg draws. `?detail=full` keeps the full
+ * target in motion too, and `?detail=<number>` sets a different one.
+ */
+const DETAIL_PARAM = new URLSearchParams(location.search).get("detail");
+const MOVING_SPLAT_BUDGET = (() => {
+  if (DETAIL_PARAM === "full") return 0;
+  const parsed = Number(DETAIL_PARAM);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 900_000;
+})();
+/** `?stats=1` shows frame time, frame rate and the splats actually drawn. */
+const SHOW_STATS = new URLSearchParams(location.search).get("stats") === "1";
 const SPAWN_FACING_YAW = 0; // Looks down -Z, matching the production camera direction.
 /** A longer flight would take too long to render frame by frame. */
 const MAX_RECORDING_SECONDS = 120;
 const MIN_RECORDING_SECONDS = 0.5;
+
+/**
+ * A small readout pinned to the corner, shown only with `?stats=1`. It is a
+ * tuning instrument rather than a feature, so it is plain text and owns no
+ * markup of its own beyond the one element.
+ */
+function createStatsReadout() {
+  const element = document.createElement("div");
+  element.style.cssText = [
+    "position:fixed",
+    "top:10px",
+    "left:10px",
+    "z-index:40",
+    "padding:6px 10px",
+    "border-radius:8px",
+    "background:rgba(10,10,12,0.72)",
+    "color:#e8e8ea",
+    "font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace",
+    "pointer-events:none",
+    "white-space:nowrap",
+  ].join(";");
+  document.body.append(element);
+  let shown = "";
+  return {
+    set(text: string) {
+      if (text === shown) return;
+      shown = text;
+      element.textContent = text;
+    },
+    clear() {
+      shown = "";
+      element.textContent = "";
+    },
+  };
+}
 
 function isEditableTarget(target: EventTarget | null) {
   return (
@@ -83,6 +134,10 @@ class App {
   private session: WorldSession | null = null;
   private controller: FirstPersonController | null = null;
   private quality: AdaptiveQuality | null = null;
+  private motionDetail: MotionDetail | null = null;
+  private readonly stats = SHOW_STATS ? createStatsReadout() : null;
+  /** Smoothed frame time in milliseconds, for the stats readout. */
+  private frameMs = 0;
   private currentWorld: WorldEntry | null = null;
   private loadAttempt = 0;
   private uploads: UploadRecord[] = [];
@@ -103,8 +158,19 @@ class App {
   private exportResult: ExportResult | null = null;
 
   constructor() {
+    // The context is made here rather than left to three, because the flag that
+    // matters for how quickly a drawn frame reaches the screen — desynchronized,
+    // which lets the canvas skip waiting to be composited with the page — is not
+    // in three's parameter type. A browser that refuses it leaves `context` null
+    // and three makes its own, which is the behaviour this had before.
+    const context = ui.canvas.getContext("webgl2", {
+      antialias: false,
+      powerPreference: "high-performance",
+      desynchronized: true,
+    });
     this.renderer = new THREE.WebGLRenderer({
       canvas: ui.canvas,
+      context: context ?? undefined,
       antialias: false,
       powerPreference: "high-performance",
     });
@@ -222,10 +288,28 @@ class App {
       const now = performance.now();
       if (this.recording) this.sampleRecording(now);
       this.quality?.sample(delta, now);
+      if (this.motionDetail && this.controller) {
+        const turning = this.controller.sinceLastLook(now) < 90;
+        this.motionDetail.update(now, turning || this.controller.isMoving);
+      }
       this.renderer.render(this.scene, this.camera);
+      if (this.stats) this.updateStats(delta);
     } else {
       this.renderer.clear();
     }
+  }
+
+  /** Frame time, frame rate and the splats behind them, for tuning by eye. */
+  private updateStats(delta: number) {
+    const ms = delta * 1000;
+    // Smoothed, because a readout that flickers cannot be read at all.
+    this.frameMs = this.frameMs === 0 ? ms : this.frameMs + (ms - this.frameMs) * 0.1;
+    const splats = Math.round(this.renderer.info.render.triangles / 2);
+    const detail = this.motionDetail?.isReduced ? "moving" : "full";
+    this.stats?.set(
+      `${this.frameMs.toFixed(1)} ms · ${Math.round(1000 / this.frameMs)} fps · ` +
+        `${(splats / 1000).toFixed(0)}K splats · ${detail}`,
+    );
   }
 
   private toggleRecording() {
@@ -734,6 +818,14 @@ class App {
         });
         this.quality.reset(performance.now());
       }
+      if (MOVING_SPLAT_BUDGET > 0 && !ADAPTIVE_QUALITY) {
+        this.motionDetail = new MotionDetail({
+          restBudget: session.spark.defaultSplatTarget(),
+          movingBudget: MOVING_SPLAT_BUDGET,
+          apply: (splatBudget) => session.setSplatBudget(splatBudget),
+        });
+        this.motionDetail.reset();
+      }
       this.controller = new FirstPersonController({
         camera: this.camera,
         domElement: ui.canvas,
@@ -807,6 +899,9 @@ class App {
     this.session?.dispose();
     this.session = null;
     this.quality = null;
+    this.motionDetail = null;
+    this.frameMs = 0;
+    this.stats?.clear();
     // The next world starts sharp; only the opt-in controller ever lowers it.
     if (this.renderer.getPixelRatio() !== MAX_PIXEL_RATIO) {
       this.renderer.setPixelRatio(MAX_PIXEL_RATIO);

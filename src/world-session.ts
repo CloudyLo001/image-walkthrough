@@ -155,8 +155,12 @@ export class WorldSession {
     }
   }
 
-  /** Target splat count for the LoD tree; Spark reads it on the next update. */
-  setSplatBudget(count: number) {
+  /**
+   * Target splat count for the LoD tree; Spark reads it on the next update.
+   * Undefined hands the choice back to Spark, which is the platform default
+   * Mint's own viewer draws.
+   */
+  setSplatBudget(count: number | undefined) {
     if (this.disposed) return;
     this.spark.lodSplatCount = count;
   }

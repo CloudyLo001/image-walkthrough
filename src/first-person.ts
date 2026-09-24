@@ -27,8 +27,14 @@ const LOOK_SENSITIVITY = 0.0022;
 const DRAG_SENSITIVITY = 0.004;
 const MAX_PITCH = THREE.MathUtils.degToRad(89);
 const MOVE_SMOOTHING = 9;
-const LOOK_SMOOTHING = 22;
-const MAX_DELTA = 1 / 20;
+// Only the arrow keys are smoothed: they are held down, so easing them reads as
+// a steady turn. The mouse is not, because every frame spent easing toward the
+// pointer is a frame the view lags behind the hand, which is felt immediately
+// on a slow GPU where a frame is tens of milliseconds.
+const TURN_SMOOTHING = 22;
+// Below this the frame is slow enough that scaling movement by it would make a
+// step across the room take visibly longer; hold the step size instead.
+const MAX_DELTA = 1 / 10;
 // How far past the world you may drift before being held, so flying through a
 // wall leaves you near the building rather than lost in empty space.
 const DRIFT_MARGIN_RATIO = 0.35;
@@ -81,6 +87,8 @@ export class FirstPersonController {
   private targetYaw = 0;
   private targetPitch = 0;
   private moving = false;
+  /** When the view last turned, so detail can be spent while the camera is still. */
+  private lastLookAt = 0;
   private locked = false;
   private lockUnavailable = false;
   private dragPointerId: number | null = null;
@@ -178,6 +186,11 @@ export class FirstPersonController {
     return { yaw: this.yaw, pitch: this.pitch };
   }
 
+  /** Milliseconds since the view last turned; Infinity until it has. */
+  sinceLastLook(now = performance.now()) {
+    return this.lastLookAt === 0 ? Number.POSITIVE_INFINITY : now - this.lastLookAt;
+  }
+
   lock() {
     if (this.disposed || this.locked || this.lockUnavailable) return;
     const request = this.domElement.requestPointerLock as (
@@ -210,9 +223,18 @@ export class FirstPersonController {
     this.onLockUnavailable?.();
   }
 
+  /**
+   * Aim where the pointer now is, this instant. The camera pose is written
+   * here rather than waiting for the next frame, so a frame that starts after
+   * a mouse event already carries that event's movement.
+   */
   private applyLookDelta(yawDelta: number, pitchDelta: number) {
     this.targetYaw -= yawDelta;
     this.targetPitch = THREE.MathUtils.clamp(this.targetPitch - pitchDelta, -MAX_PITCH, MAX_PITCH);
+    this.yaw = this.targetYaw;
+    this.pitch = this.targetPitch;
+    this.lastLookAt = performance.now();
+    this.applyLook();
   }
 
   /** Keep the camera within a generous box around the world so it cannot get lost. */
@@ -286,11 +308,15 @@ export class FirstPersonController {
 
     // Arrow keys: left/right turn, up/down climb and descend.
     const turnRate = running ? TURN_RUN_SPEED : TURN_SPEED;
-    if (this.keys.has("ArrowLeft")) this.targetYaw += turnRate * dt;
-    if (this.keys.has("ArrowRight")) this.targetYaw -= turnRate * dt;
+    const turningLeft = this.keys.has("ArrowLeft");
+    const turningRight = this.keys.has("ArrowRight");
+    if (turningLeft) this.targetYaw += turnRate * dt;
+    if (turningRight) this.targetYaw -= turnRate * dt;
+    if (turningLeft || turningRight) this.lastLookAt = performance.now();
 
-    // Smoothed look.
-    const lookBlend = 1 - Math.exp(-LOOK_SMOOTHING * dt);
+    // The mouse has already been applied; this only eases the held arrow keys,
+    // and settles instantly once yaw and pitch have caught up with the target.
+    const lookBlend = 1 - Math.exp(-TURN_SMOOTHING * dt);
     this.yaw += (this.targetYaw - this.yaw) * lookBlend;
     this.pitch += (this.targetPitch - this.pitch) * lookBlend;
     this.applyLook();
