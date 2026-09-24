@@ -750,6 +750,68 @@
       },
       "thumbnailUrl": "public/assets/mint/bright-supermarket-aisle/preview_image.webp"
     },
+    "cardboard-box-interior": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979qz6f8q63q3twfnmh29h0m58ez6m1"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/inside-the-cardboard-box-08f07297a90c8052-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/inside-the-cardboard-box-collider-b27956494e258056.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 43982624
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "cardboard-box-interior-m58ez6m1-preview.webp",
+          "localPath": "public/assets/mint/cardboard-box-interior/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 19814
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/cardboard-box-interior/preview_image.webp"
+    },
     "castle-playground-park": {
       "source": {
         "manifestVersion": 1,
@@ -3478,6 +3540,68 @@
       },
       "thumbnailUrl": "public/assets/mint/mountain-playground-zones/preview_image.webp"
     },
+    "narrow-red-brick-passage": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97bt83n5n0qcbkyx9a4m27hs58eyjtq"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/narrow-brick-passage-3cf39152b7ff7410-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/narrow-brick-passage-collider-82ac7fe18d9ed078.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 45656584
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "narrow-red-brick-passage-s58eyjtq-preview.webp",
+          "localPath": "public/assets/mint/narrow-red-brick-passage/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 54460
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/narrow-red-brick-passage/preview_image.webp"
+    },
     "naruto-valley-of-the-end": {
       "source": {
         "manifestVersion": 1,
@@ -3787,6 +3911,68 @@
         }
       },
       "thumbnailUrl": "public/assets/mint/pink-victorian-mansion/preview_image.webp"
+    },
+    "porous-pink-amber-tunnel": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j979hmxftyys3hyfap8xxpn90x8eygjd"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/porous-organic-choke-point-db8a4a721cd9ddbb-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/porous-organic-choke-point-collider-b91fd24da0c5e72a.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 47201304
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "porous-pink-amber-tunnel-0x8eygjd-preview.webp",
+          "localPath": "public/assets/mint/porous-pink-amber-tunnel/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 63454
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/porous-pink-amber-tunnel/preview_image.webp"
     },
     "rainy-forest-bus-stop": {
       "source": {

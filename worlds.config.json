@@ -380,6 +380,18 @@
     "toys-r-us-entrance": {
       "title": "Toys R Us Entrance",
       "mintChatId": "ph7da32kvq40pg6nm56gcpdvv98ey740"
+    },
+    "porous-pink-amber-tunnel": {
+      "title": "Porous Pink Amber Tunnel",
+      "mintChatId": "ph722nscbj3hm0k2c1c3qezh8h8eyacv"
+    },
+    "cardboard-box-interior": {
+      "title": "Cardboard Box Interior",
+      "mintChatId": "ph72mfyy1e0an95v9e2hhcshch8eyk5c"
+    },
+    "narrow-red-brick-passage": {
+      "title": "Narrow Red Brick Passage",
+      "mintChatId": "ph79n31mjnase03j5h8e4b8x098eye2m"
     }
   }
 }
