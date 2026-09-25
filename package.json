@@ -9,7 +9,9 @@
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "mint:sync": "node scripts/sync-mint-assets.mjs --project .",
-    "worlds:publish": "node scripts/publish-worlds.mjs"
+    "worlds:publish": "node scripts/publish-worlds.mjs",
+    "ideas:check": "node scripts/check-ideas.mjs",
+    "refs:search": "node scripts/find-references.mjs"
   },
   "dependencies": {
     "@sparkjsdev/spark": "^2.1.0",

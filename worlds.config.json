@@ -441,6 +441,21 @@
     "coastal-vaulted-bedroom": {
       "title": "Coastal Vaulted Bedroom",
       "mintChatId": "ph771ww78sa3sybf5pntqxjcp18f1qyx"
+    },
+    "drakes-old-toronto-mansion-great-room": {
+      "title": "Drake's old Toronto mansion: Great room",
+      "mintAssetId": "j9743gjs2y1vr2qvz2ky4sh2318f3yam",
+      "mintChatId": "ph73wg4b2sdbx1t2scjb981h9s8f218k"
+    },
+    "drakes-old-toronto-mansion-basketball-court": {
+      "title": "Drake's old Toronto mansion: Basketball court",
+      "mintAssetId": "j97cvsvzed5w8e97nad2ec6jmd8f2hhz",
+      "mintChatId": "ph70xmhk0etahtg30pw0h6rxx58f2203"
+    },
+    "drakes-old-toronto-mansion-indoor-pool": {
+      "title": "Drake's old Toronto mansion: Indoor pool",
+      "mintAssetId": "j975fwg5dwb3cqqejgs3yxwz618f3ge5",
+      "mintChatId": "ph7292b5439ce5zh3anyxv833h8f3nda"
     }
   }
 }

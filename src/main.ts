@@ -19,6 +19,7 @@ import {
   renderBatchBar,
   renderLists,
   setAuthoringAvailable,
+  setAutomationAvailable,
   setHudCollapsed,
   setLookMode,
   setMoving,
@@ -27,10 +28,13 @@ import {
   setUploadNote,
   showExport,
   showLobby,
+  showSection,
   ui,
+  type Section,
   type UploadRecord,
 } from "./ui";
 import { AdaptiveQuality } from "./quality";
+import { AutomationPage } from "./automation/page";
 import { CameraPath } from "./camera-path";
 import { watchRemoteWorlds } from "./remote-worlds";
 import {
@@ -150,12 +154,16 @@ class App {
   private stopRemoteWorlds: () => void = () => {};
   /** A ?world=<key> link opens that world as soon as the list holds it. */
   private deepLinkKey: string | null = new URLSearchParams(location.search).get("world");
+  /** Which lobby page shows; ?view=automation keeps it across a refresh. */
+  private section: Section =
+    new URLSearchParams(location.search).get("view") === "automation" ? "automation" : "worlds";
   /** Upload names in tick order; the first is the anchor. */
   private selection: string[] = [];
   private recording: Recording | null = null;
   /** Set while a video renders; the live loop stands aside until it is done. */
   private exportAbort: AbortController | null = null;
   private exportResult: ExportResult | null = null;
+  private automation!: AutomationPage;
 
   constructor() {
     // The context is made here rather than left to three, because the flag that
@@ -187,6 +195,13 @@ class App {
       if (this.controller && !this.controller.isLocked) this.controller.lock();
     });
     ui.exit.addEventListener("click", () => this.exitWorld());
+    ui.navWorlds.addEventListener("click", () => this.goToSection("worlds"));
+    ui.navAutomation.addEventListener("click", () => this.goToSection("automation"));
+    showSection(this.section);
+    this.automation = new AutomationPage(
+      ui.automationPage,
+      () => this.section === "automation" && !ui.lobby.hidden,
+    );
     ui.record.addEventListener("click", () => this.toggleRecording());
     // R works while the pointer is locked, when the button cannot be clicked.
     window.addEventListener("keydown", (event) => {
@@ -258,6 +273,19 @@ class App {
     url.searchParams.delete("world");
     history.replaceState(null, "", url);
     void this.enterWorld(world);
+  }
+
+  private goToSection(section: Section) {
+    this.section = section;
+    showSection(section);
+    if (section === "automation") this.automation.refresh();
+    const url = new URL(location.href);
+    if (section === "automation") url.searchParams.set("view", section);
+    else {
+      url.searchParams.delete("view");
+      url.searchParams.delete("project");
+    }
+    history.replaceState(null, "", url);
   }
 
   private toggleHud() {
@@ -665,6 +693,8 @@ class App {
       );
     }
     setAuthoringAvailable(this.uploadsSupported);
+    setAutomationAvailable(this.uploadsSupported);
+    if (!this.uploadsSupported && this.section === "automation") this.goToSection("worlds");
   }
 
   private bindUploads() {

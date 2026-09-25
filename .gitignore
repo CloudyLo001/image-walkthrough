@@ -1,7 +1,11 @@
 node_modules
 dist
-.claude
+# Local Claude settings stay private; project skills are shared.
+.claude/*
+!.claude/skills/
 uploads/*
 !uploads/.gitkeep
 .env.local
 .env.*.local
+# Reel projects are local working files: videos, clips and drafts.
+/automation/

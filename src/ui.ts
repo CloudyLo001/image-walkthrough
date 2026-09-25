@@ -16,6 +16,10 @@ function requireElement<T extends HTMLElement>(id: string): T {
 export const ui = {
   canvas: requireElement<HTMLCanvasElement>("scene"),
   lobby: requireElement<HTMLDivElement>("lobby"),
+  navWorlds: requireElement<HTMLButtonElement>("nav-worlds"),
+  navAutomation: requireElement<HTMLButtonElement>("nav-automation"),
+  worldsPage: requireElement<HTMLDivElement>("worlds-page"),
+  automationPage: requireElement<HTMLDivElement>("automation-page"),
   drop: requireElement<HTMLLabelElement>("drop"),
   fileInput: requireElement<HTMLInputElement>("file-input"),
   uploadNote: requireElement<HTMLParagraphElement>("upload-note"),
@@ -91,6 +95,26 @@ export function setAuthoringAvailable(available: boolean) {
 export function showLobby(visible: boolean) {
   ui.lobby.hidden = !visible;
   ui.hud.hidden = visible;
+}
+
+export type Section = "worlds" | "automation";
+
+/** The lobby holds two pages under one header; the nav picks which one shows. */
+export function showSection(section: Section) {
+  ui.worldsPage.hidden = section !== "worlds";
+  ui.automationPage.hidden = section !== "automation";
+  for (const [button, own] of [
+    [ui.navWorlds, "worlds"],
+    [ui.navAutomation, "automation"],
+  ] as const) {
+    if (own === section) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  }
+}
+
+/** Automation writes to local files, so the read-only build has no use for it. */
+export function setAutomationAvailable(available: boolean) {
+  ui.navWorlds.closest("nav")?.toggleAttribute("hidden", !available);
 }
 
 export type LookMode = "idle" | "locked" | "drag";

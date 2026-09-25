@@ -1494,6 +1494,192 @@
       },
       "thumbnailUrl": "public/assets/mint/cream-city-apartment/preview_image.webp"
     },
+    "drakes-old-toronto-mansion-basketball-court": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j97cvsvzed5w8e97nad2ec6jmd8f2hhz"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/the-embassy-sports-wing-0cbe2ced912a977e-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/the-embassy-sports-wing-collider-816436ff4cae9d30.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44787528
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "drake-s-embassy-sports-wing-md8f2hhz-preview.webp",
+          "localPath": "public/assets/mint/drakes-old-toronto-mansion-basketball-court/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 59036
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/drakes-old-toronto-mansion-basketball-court/preview_image.webp"
+    },
+    "drakes-old-toronto-mansion-great-room": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j9743gjs2y1vr2qvz2ky4sh2318f3yam"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/drake-s-embassy-mansion-walkthrough-7a708a33b18849a0-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/drake-s-embassy-mansion-walkthrough-collider-a36bbd21caccbc91.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 44913608
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "toronto-embassy-mansion-318f3yam-preview.webp",
+          "localPath": "public/assets/mint/drakes-old-toronto-mansion-great-room/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 55656
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/drakes-old-toronto-mansion-great-room/preview_image.webp"
+    },
+    "drakes-old-toronto-mansion-indoor-pool": {
+      "source": {
+        "manifestVersion": 1,
+        "kind": "asset",
+        "assetType": "world",
+        "assetId": "j975fwg5dwb3cqqejgs3yxwz618f3ge5"
+      },
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mode": "remote_stream",
+      "runtime": {
+        "artifactId": "world_runtime_rad",
+        "role": "environment",
+        "format": "rad",
+        "runtimeUrl": "https://cdn.mint.gg/rad/drakes-toronto-spa-wing-9e6ced05ac3b1bd8-lod.rad",
+        "renderer": "@sparkjsdev/spark",
+        "loaderHint": {
+          "renderer": "SparkRenderer",
+          "mesh": "SplatMesh",
+          "paged": true,
+          "lod": false
+        },
+        "collider": {
+          "artifactId": "world_collider",
+          "role": "physics_collider",
+          "format": "glb",
+          "runtimeUrl": "https://cdn.mint.gg/worlds/drakes-toronto-spa-wing-collider-a5df62219d89f0d8.glb",
+          "loaderHint": "gltf",
+          "visible": false,
+          "requiredForPhysics": true
+        },
+        "byteSize": 42881640
+      },
+      "artifacts": {
+        "preview_image": {
+          "artifactId": "preview_image",
+          "role": "preview_image",
+          "format": "webp",
+          "contentType": "image/webp",
+          "filename": "the-embassy-spa-wing-618f3ge5-preview.webp",
+          "localPath": "public/assets/mint/drakes-old-toronto-mansion-indoor-pool/preview_image.webp",
+          "loaderHint": "image",
+          "byteSize": 33436
+        }
+      },
+      "thumbnailUrl": "public/assets/mint/drakes-old-toronto-mansion-indoor-pool/preview_image.webp"
+    },
     "dusk-brick-apartment-living-room": {
       "source": {
         "manifestVersion": 1,

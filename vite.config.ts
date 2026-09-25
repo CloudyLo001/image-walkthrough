@@ -3,6 +3,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { MAX_WORLD_PHOTOS, worldPhotos } from "./src/world-photos";
+import { attachAutomationApi } from "./server/automation";
 
 const UPLOAD_DIR = path.resolve(process.cwd(), "uploads");
 const WORLD_CONFIG_PATH = path.resolve(process.cwd(), "worlds.config.json");
@@ -318,6 +319,7 @@ async function forgetWorld(key: string) {
 // The Mint world generation itself runs through Mint MCP in agent tooling.
 function uploadsApi(): Plugin {
   const attach = (middlewares: { use: (route: string, handler: Middleware) => void }) => {
+    attachAutomationApi(middlewares);
     middlewares.use("/api/generation", async (req, res, next) => {
       try {
         const route = (req.url ?? "/").split("?")[0];
@@ -526,7 +528,15 @@ export default defineConfig({
     // worlds.config.json is a static import, so every write would otherwise
     // force a full reload and wipe an in-progress selection. The lobby polls
     // /api/generation for live config, so nothing is lost by ignoring it.
-    watch: { ignored: ["**/worlds.config.json", "**/uploads/**"] },
+    // The root automation/ folder holds reel project files the page saves as
+    // you work; only that folder, not src/automation, is left unwatched.
+    watch: {
+      ignored: [
+        "**/worlds.config.json",
+        "**/uploads/**",
+        `${process.cwd().replace(/\\/g, "/")}/automation/**`,
+      ],
+    },
   },
   preview: { host: "127.0.0.1", port: 4190, strictPort: true },
   build: { sourcemap: true, chunkSizeWarningLimit: 6000 },

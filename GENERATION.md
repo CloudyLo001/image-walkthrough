@@ -163,8 +163,9 @@ entry through the dev server and free its photos.
    ```
 
 4. Poll `wait_for_status` with `until_stage: "final"`. Stages run preview, then
-   final generation, then post-processing. Expect roughly ten minutes, longer
-   for a larger requested space.
+   final generation, then post-processing. Worlds usually finish in about four
+   to six minutes. Don't assume a fixed time: poll in short steps and move on
+   the moment it's final.
 5. **Check for a stop between polls.** If `worlds.config.json` shows
    `"status": "cancelled"` for that key, the user pressed Stop: abandon the
    generation, do not register it, and leave the row as it is.
@@ -316,7 +317,7 @@ soft world however good the prompt. Two things help, in order:
    the world far better than text asked for in the world prompt alone. Ask for
    the scene empty of people, since crowds resolve badly in a splat.
 2. **Use review mode and look at the preview** before approving. The preview
-   costs about a minute; the final costs seven or more. Download the preview
+   is quick, and the final takes most of the build time. Download the preview
    image and check it, then `approve_final_generation` or `revise_preview`.
 
 Keep the original photos as secondary references so the generated anchor does

@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Nostalgic Engine</title>
+    <!-- TikTok Sans, for reel hooks in the Automation page. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400..800&display=swap"
+    />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -11,6 +18,10 @@
 
     <div id="lobby" class="lobby">
       <header class="brand">
+        <nav id="nav" class="brand-nav" aria-label="Sections">
+          <button id="nav-worlds" class="nav-btn" type="button" aria-current="page">Worlds</button>
+          <button id="nav-automation" class="nav-btn" type="button">Automation</button>
+        </nav>
         <div class="brand-title">
           <h1 class="brand-name">Nostalgic Engine</h1>
           <p class="brand-tagline">Reliving your best memories</p>
@@ -21,7 +32,7 @@
         </div>
       </header>
 
-      <div class="panel">
+      <div id="worlds-page" class="panel">
         <label id="drop" class="drop" for="file-input" tabindex="0">
           <span class="drop-title">Drop photos of a room or place</span>
           <span class="drop-sub">Several photos of the same place become one world you can walk inside.</span>
@@ -78,6 +89,9 @@
           <ul id="worlds" class="list" aria-label="Finished worlds"></ul>
         </section>
       </div>
+
+      <!-- Built by src/automation/page.ts. -->
+      <div id="automation-page" class="automation" hidden></div>
     </div>
 
     <div id="hud" class="hud" hidden>
